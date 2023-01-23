@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "f10effe6-0265-4f03-b0d0-37cb7ccb6342",
+		"name": "fakebank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20183872"
+	},
+	"item": [
+		{
+			"name": "Account Balance (111)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accounts/111/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"111",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Balance (Invalid details)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accounts/999/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"999",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Details (222)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/accounts/222/details",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"222",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment (111 to 222)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"debtorAccount\": 111,\n    \"creditorAccount\": 222,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment (222 to 111)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"debtorAccount\": 222,\n    \"creditorAccount\": 111,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment (Invalid Account)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"debtorAccount\": 111,\n    \"creditorAccount\": 999,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,127 @@
+openapi: '3.0.3'
+info:
+  description: 'Intra Bank Payment Transfer System'
+  version: 1.0.0
+  title: fakebank-api
+  contact:
+    name: Ian Robert O'Brien
+servers:
+  - url: http://localhost:8080/
+paths:
+  /accounts/{accountId}/balance:
+    get:
+      summary: 'Get the balance for the specified account'
+      operationId: getAccountBalance
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/AccountBalance'
+        '404':
+          description: account not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/GeneralError'
+  /accounts/{accountId}/details:
+    get:
+      summary: 'Get the details for the specified account'
+      operationId: getAccountDetails
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/AccountDetails'
+        '404':
+          description: account not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/GeneralError'
+  /payments:
+    post:
+      summary: 'Transfer the specified amount from the debtor account to the creditor account'
+      operationId: initiatePayment
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json: { }
+        '400':
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/GeneralError'
+        '404':
+          description: account not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/GeneralError'
+components:
+  schemas:
+    AccountBalance:
+      type: object
+      properties:
+        accountId:
+          type: string
+        balance:
+          type: string
+        currency:
+          type: string
+    AccountDetails:
+      type: object
+      properties:
+        accountId:
+          type: string
+        balance:
+          type: string
+        currency:
+          type: string
+        ownerName:
+          type: string
+    PaymentRequest:
+      type: object
+      properties:
+        creditorAccount:
+          type: string
+        debtorAccount:
+          type: string
+        instructedAmount:
+          $ref: '#/definitions/InstructedAmount'
+    InstructedAmount:
+      type: object
+      properties:
+        amount:
+          type: string
+        currency:
+          type: string
+    GeneralError:
+      type: object
+      properties:
+        message:
+          type: string

@@ -1,0 +1,10 @@
+version: "3"
+services:
+  fakebank:
+    build: .
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: "exit 0"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
