@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.8.7-amazoncorretto-19@sha256:e356014e0040d29bb3354ac366574d392c0da955a3bb78938cd9c9a3a1ee7110 AS build
+FROM maven:3.9.0-amazoncorretto-19@sha256:88ef10673d5fc9071a0b4dad528766e1eeac0fe7756b51ed8dffb4daa8486904 AS build
 COPY . /home/app/
 RUN mvn -f /home/app/pom.xml clean install -DskipTests
 
