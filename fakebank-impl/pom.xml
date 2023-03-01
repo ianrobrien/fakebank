@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>no.obrien</groupId>
@@ -110,6 +110,10 @@
         <exclusion>
           <groupId>ch.qos.logback</groupId>
           <artifactId>logback-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.yaml</groupId>
+          <artifactId>snakeyaml</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -287,7 +291,8 @@
             <dependency>org.openapitools:jackson-databind-nullable</dependency>
           </usedDependencies>
           <ignoredNonTestScopedDependencies>
-            <ignoredNonTestScopedDependency>org.springframework:spring-beans</ignoredNonTestScopedDependency>
+            <ignoredNonTestScopedDependency>org.springframework:spring-beans
+            </ignoredNonTestScopedDependency>
           </ignoredNonTestScopedDependencies>
         </configuration>
       </plugin>
@@ -302,7 +307,8 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <inputSpec>${project.basedir}/../fakebank-api/src/main/resources/fakebank.api.yaml</inputSpec>
+              <inputSpec>${project.basedir}/../fakebank-api/src/main/resources/fakebank.api.yaml
+              </inputSpec>
               <language>html2</language>
               <output>${project.basedir}/../docs/api</output>
             </configuration>
