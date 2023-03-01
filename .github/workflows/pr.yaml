@@ -40,7 +40,7 @@ jobs:
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
-          jacoco-csv-file: icm-impl/target/site/jacoco/jacoco.csv
+          jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
           coverage-label: Coverage
 
       - name: Commit and push the coverage badge
