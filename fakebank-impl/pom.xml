@@ -90,6 +90,12 @@
       <version>2.0.6</version>
     </dependency>
 
+    <!--Dependabot Security-->
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>[3.0.16,)</version>
+    </dependency>
 
     <!--Server API-->
     <dependency>
