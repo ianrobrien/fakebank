@@ -1,6 +1,5 @@
 # fakebank
 
-[![Continuous Integration](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml/badge.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml)
 [![Pull Request](https://github.com/ianrobrien/fakebank/actions/workflows/pr.yaml/badge.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/pr.yaml)
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml)
 
