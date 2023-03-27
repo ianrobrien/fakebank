@@ -8,7 +8,7 @@ RUN mvn -f /home/app/pom.xml clean install -DskipTests
 #
 # Package stage
 #
-FROM amazoncorretto:19-alpine3.16-jdk@sha256:7949de351f5378500ded7e0422f761086c8d290e51e6d015a789ff54317b6fcb
+FROM amazoncorretto:20-alpine3.16-jdk@sha256:191ffe9cd2b97bd4849085b6cb81624336fff1ae6d3e367c3d9b501f8d26f553
 COPY --from=build /home/app/fakebank-impl/target/fakebank-impl-1.0-SNAPSHOT.jar /usr/local/lib/fakebank.jar
 EXPOSE 8080
 ENTRYPOINT java -jar /usr/local/lib/fakebank.jar
