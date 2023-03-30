@@ -23,6 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   build:
+    needs: [ vale ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
