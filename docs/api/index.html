@@ -749,7 +749,7 @@
       "type" : "string"
     },
     "instructedAmount" : {
-      "$ref" : "#/definitions/InstructedAmount"
+      "$ref" : "#/components/schemas/InstructedAmount"
     }
   }
 };
@@ -852,7 +852,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String accountId = accountId_example; // String | 
         try {
-            #/definitions/AccountBalance result = apiInstance.getAccountBalance(accountId);
+            AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getAccountBalance");
@@ -871,7 +871,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String accountId = accountId_example; // String | 
         try {
-            #/definitions/AccountBalance result = apiInstance.getAccountBalance(accountId);
+            AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getAccountBalance");
@@ -891,7 +891,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get the balance for the specified account
 [apiInstance getAccountBalanceWith:accountId
-              completionHandler: ^(#/definitions/AccountBalance output, NSError* error) {
+              completionHandler: ^(AccountBalance output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -942,7 +942,7 @@ namespace Example
             try
             {
                 // Get the balance for the specified account
-                #/definitions/AccountBalance result = apiInstance.getAccountBalance(accountId);
+                AccountBalance result = apiInstance.getAccountBalance(accountId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1061,7 +1061,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/AccountBalance"
+        "$ref" : "#/components/schemas/AccountBalance"
       }
     }
   }
@@ -1109,7 +1109,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/GeneralError"
+        "$ref" : "#/components/schemas/GeneralError"
       }
     }
   }
@@ -1193,7 +1193,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String accountId = accountId_example; // String | 
         try {
-            #/definitions/AccountDetails result = apiInstance.getAccountDetails(accountId);
+            AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getAccountDetails");
@@ -1212,7 +1212,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String accountId = accountId_example; // String | 
         try {
-            #/definitions/AccountDetails result = apiInstance.getAccountDetails(accountId);
+            AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getAccountDetails");
@@ -1232,7 +1232,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get the details for the specified account
 [apiInstance getAccountDetailsWith:accountId
-              completionHandler: ^(#/definitions/AccountDetails output, NSError* error) {
+              completionHandler: ^(AccountDetails output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1283,7 +1283,7 @@ namespace Example
             try
             {
                 // Get the details for the specified account
-                #/definitions/AccountDetails result = apiInstance.getAccountDetails(accountId);
+                AccountDetails result = apiInstance.getAccountDetails(accountId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1402,7 +1402,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/AccountDetails"
+        "$ref" : "#/components/schemas/AccountDetails"
       }
     }
   }
@@ -1450,7 +1450,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/GeneralError"
+        "$ref" : "#/components/schemas/GeneralError"
       }
     }
   }
@@ -1761,7 +1761,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/GeneralError"
+        "$ref" : "#/components/schemas/GeneralError"
       }
     }
   }
@@ -1809,7 +1809,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/definitions/GeneralError"
+        "$ref" : "#/components/schemas/GeneralError"
       }
     }
   }
