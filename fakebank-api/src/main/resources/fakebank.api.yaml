@@ -24,13 +24,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/definitions/AccountBalance'
+                $ref: '#/components/schemas/AccountBalance'
         '404':
           description: account not found
           content:
             application/json:
               schema:
-                $ref: '#/definitions/GeneralError'
+                $ref: '#/components/schemas/GeneralError'
   /accounts/{accountId}/details:
     get:
       summary: 'Get the details for the specified account'
@@ -47,13 +47,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/definitions/AccountDetails'
+                $ref: '#/components/schemas/AccountDetails'
         '404':
           description: account not found
           content:
             application/json:
               schema:
-                $ref: '#/definitions/GeneralError'
+                $ref: '#/components/schemas/GeneralError'
   /payments:
     post:
       summary: 'Transfer the specified amount from the debtor account to the creditor account'
@@ -75,13 +75,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/definitions/GeneralError'
+                $ref: '#/components/schemas/GeneralError'
         '404':
           description: account not found
           content:
             application/json:
               schema:
-                $ref: '#/definitions/GeneralError'
+                $ref: '#/components/schemas/GeneralError'
 components:
   schemas:
     AccountBalance:
@@ -112,7 +112,7 @@ components:
         debtorAccount:
           type: string
         instructedAmount:
-          $ref: '#/definitions/InstructedAmount'
+          $ref: '#/components/schemas/InstructedAmount'
     InstructedAmount:
       type: object
       properties:
