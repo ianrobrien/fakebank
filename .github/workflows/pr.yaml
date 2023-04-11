@@ -1,3 +1,4 @@
+---
 name: Continuous Integration
 
 on:
@@ -38,9 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SUPPRESS_POSSUM: true
           VALIDATE_HTML: false
-          VALIDATE_JAVA: false
           VALIDATE_JSCPD: false
           VALIDATE_NATURAL_LANGUAGE: false
+          IGNORE_GENERATED_FILES: true
 
   build:
     needs: [ lint, vale ]
