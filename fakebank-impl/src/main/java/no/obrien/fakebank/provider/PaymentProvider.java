@@ -27,8 +27,8 @@ public class PaymentProvider {
    * @param debtorAccountId the destination of the amount
    * @param instructedAmount the amount to be sent
    */
-  public void initiatePayment(String creditorAccountId, String debtorAccountId,
-      InstructedAmount instructedAmount)
+  public void initiatePayment(
+      String creditorAccountId, String debtorAccountId, InstructedAmount instructedAmount)
       throws InsufficientFundsException, InvalidAccountException, InvalidPaymentRequestException {
     log.info("Initiate payment from PaymentProvider");
 

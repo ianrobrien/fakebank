@@ -20,17 +20,20 @@ import org.springframework.stereotype.Component;
 public class AccountRepositoryMock implements AccountRepository {
 
   // The initial accounts to be returned by the mock repository
-  private final List<Account> accounts = List.of(
-      Account.builder()
-          .id("111")
-          .currency("GBP")
-          .balance(100)
-          .owner("Ian Robert O'Brien").build(),
-      Account.builder()
-          .id("222")
-          .currency("GBP")
-          .balance(200)
-          .owner("Jenny Wold O'Brien").build());
+  private final List<Account> accounts =
+      List.of(
+          Account.builder()
+              .id("111")
+              .currency("GBP")
+              .balance(100)
+              .owner("Ian Robert O'Brien")
+              .build(),
+          Account.builder()
+              .id("222")
+              .currency("GBP")
+              .balance(200)
+              .owner("Jenny Wold O'Brien")
+              .build());
 
   /***
    * Returns the given account

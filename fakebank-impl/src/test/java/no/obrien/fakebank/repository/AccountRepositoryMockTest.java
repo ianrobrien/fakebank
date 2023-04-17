@@ -18,8 +18,10 @@ public class AccountRepositoryMockTest {
    */
   @Test
   void getAccount_invalidAccountId_throwsException() {
-    var exception = assertThrows(InvalidAccountException.class, () ->
-        accountRepositoryMock.getAccount("not an account"));
+    var exception =
+        assertThrows(
+            InvalidAccountException.class,
+            () -> accountRepositoryMock.getAccount("not an account"));
 
     assertEquals("Invalid account details", exception.getMessage());
   }

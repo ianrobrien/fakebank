@@ -33,11 +33,7 @@ class AccountMapperTest {
     var currency = "NOK";
     var id = "12345";
 
-    var account = Account.builder()
-        .balance(balance)
-        .currency(currency)
-        .id(id)
-        .build();
+    var account = Account.builder().balance(balance).currency(currency).id(id).build();
 
     var accountBalance = accountMapper.toAccountBalance(account);
 
@@ -66,12 +62,7 @@ class AccountMapperTest {
     var id = "12345";
     var owner = "Ian Robert O'Brien";
 
-    var account = Account.builder()
-        .balance(balance)
-        .currency(currency)
-        .id(id)
-        .owner(owner)
-        .build();
+    var account = Account.builder().balance(balance).currency(currency).id(id).owner(owner).build();
 
     var accountDetails = accountMapper.toAccountDetails(account);
 

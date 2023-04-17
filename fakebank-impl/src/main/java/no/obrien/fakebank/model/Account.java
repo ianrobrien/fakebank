@@ -28,12 +28,10 @@ public class Account {
   /***
    * The account balance (e.g. 256.16)
    */
-  @Setter
-  private double balance;
+  @Setter private double balance;
 
   /***
    * The account currency (e.g. USD)
    */
-  @Setter
-  private String currency;
+  @Setter private String currency;
 }

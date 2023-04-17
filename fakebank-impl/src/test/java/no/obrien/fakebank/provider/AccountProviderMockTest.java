@@ -24,12 +24,8 @@ public class AccountProviderMockTest {
 
     var accountRepository = mock(AccountRepository.class);
     when(accountRepository.getAccount(id))
-        .thenReturn(Account.builder()
-            .id(id)
-            .balance(balance)
-            .currency(currency)
-            .owner(owner)
-            .build());
+        .thenReturn(
+            Account.builder().id(id).balance(balance).currency(currency).owner(owner).build());
 
     var accountProvider = new AccountProvider(accountRepository);
 

@@ -27,14 +27,14 @@ public class InvalidPaymentRequestExceptionTest {
     var accountProvider = mock(AccountProvider.class);
     var paymentProvider = new PaymentProvider(accountProvider);
 
-    when(accountProvider.getAccount(anyString()))
-        .thenReturn(Account.builder().build());
+    when(accountProvider.getAccount(anyString())).thenReturn(Account.builder().build());
 
-    var exception = assertThrows(InvalidPaymentRequestException.class, () ->
-        paymentProvider.initiatePayment(
-            "111",
-            "222",
-            new InstructedAmount().amount("-10.0")));
+    var exception =
+        assertThrows(
+            InvalidPaymentRequestException.class,
+            () ->
+                paymentProvider.initiatePayment(
+                    "111", "222", new InstructedAmount().amount("-10.0")));
 
     assertEquals("Invalid payment request", exception.getMessage());
   }
