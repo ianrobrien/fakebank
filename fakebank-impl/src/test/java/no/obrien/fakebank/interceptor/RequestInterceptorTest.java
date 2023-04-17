@@ -18,8 +18,7 @@ public class RequestInterceptorTest {
   @Test
   void validInterceptorResult() {
     var request = mock(HttpServletRequest.class);
-    when(request.getRequestURI())
-        .thenReturn("localhost:8080/accounts/111/balance");
+    when(request.getRequestURI()).thenReturn("localhost:8080/accounts/111/balance");
 
     var requestInterceptor = new RequestInterceptor();
     assertTrue(requestInterceptor.preHandle(request, null, null));

@@ -11,8 +11,7 @@ import org.springframework.http.HttpStatus;
 @SpringBootTest
 public class ControllerExceptionHandlerTest {
 
-  @Autowired
-  private ControllerExceptionHandler controllerExceptionHandler;
+  @Autowired private ControllerExceptionHandler controllerExceptionHandler;
 
   /***
    * Verifies that status code and message of an invalid account exception

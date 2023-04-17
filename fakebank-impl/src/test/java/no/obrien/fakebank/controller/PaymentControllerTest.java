@@ -30,19 +30,20 @@ class PaymentControllerTest {
   @Test
   void initiatePayment_negativePayment_throwsException() throws InvalidAccountException {
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.getAccount(anyString()))
-        .thenReturn(Account.builder().build());
+    when(accountRepository.getAccount(anyString())).thenReturn(Account.builder().build());
 
     var accountProvider = new AccountProvider(accountRepository);
     var paymentProvider = new PaymentProvider(accountProvider);
     var paymentController = new PaymentController(paymentProvider);
 
-    assertThrows(InvalidPaymentRequestException.class, () ->
-        paymentController.initiatePayment(
-            new PaymentRequest()
-                .creditorAccount("111")
-                .debtorAccount("111")
-                .instructedAmount(new InstructedAmount().amount("-10.00"))));
+    assertThrows(
+        InvalidPaymentRequestException.class,
+        () ->
+            paymentController.initiatePayment(
+                new PaymentRequest()
+                    .creditorAccount("111")
+                    .debtorAccount("111")
+                    .instructedAmount(new InstructedAmount().amount("-10.00"))));
   }
 
   /***
@@ -54,15 +55,17 @@ class PaymentControllerTest {
     var accountProvider = mock(AccountProvider.class);
     var paymentProvider = new PaymentProvider(accountProvider);
 
-    when(accountProvider.getAccount(anyString()))
-        .thenThrow(new InvalidAccountException());
+    when(accountProvider.getAccount(anyString())).thenThrow(new InvalidAccountException());
 
     var paymentController = new PaymentController(paymentProvider);
-    assertThrows(InvalidAccountException.class, () ->
-        paymentController.initiatePayment(new PaymentRequest()
-            .creditorAccount("1234")
-            .debtorAccount("5678")
-            .instructedAmount(new InstructedAmount().amount("100").currency("NOK"))));
+    assertThrows(
+        InvalidAccountException.class,
+        () ->
+            paymentController.initiatePayment(
+                new PaymentRequest()
+                    .creditorAccount("1234")
+                    .debtorAccount("5678")
+                    .instructedAmount(new InstructedAmount().amount("100").currency("NOK"))));
   }
 
   /***
@@ -75,19 +78,17 @@ class PaymentControllerTest {
     var paymentProvider = new PaymentProvider(accountProvider);
 
     when(accountProvider.getAccount(anyString()))
-        .thenReturn(Account.builder()
-            .id("111")
-            .balance(0.0)
-            .currency("NOK")
-            .owner("Ian")
-            .build());
+        .thenReturn(Account.builder().id("111").balance(0.0).currency("NOK").owner("Ian").build());
 
     var paymentController = new PaymentController(paymentProvider);
-    assertThrows(InsufficientFundsException.class, () ->
-        paymentController.initiatePayment(new PaymentRequest()
-            .creditorAccount("1234")
-            .debtorAccount("5678")
-            .instructedAmount(new InstructedAmount().amount("100").currency("NOK"))));
+    assertThrows(
+        InsufficientFundsException.class,
+        () ->
+            paymentController.initiatePayment(
+                new PaymentRequest()
+                    .creditorAccount("1234")
+                    .debtorAccount("5678")
+                    .instructedAmount(new InstructedAmount().amount("100").currency("NOK"))));
   }
 
   /***
@@ -99,26 +100,18 @@ class PaymentControllerTest {
     var paymentProvider = mock(PaymentProvider.class);
 
     when(accountProvider.getAccount("111"))
-        .thenReturn(Account.builder()
-            .id("111")
-            .balance(0.0)
-            .currency("NOK")
-            .owner("Ian")
-            .build());
+        .thenReturn(Account.builder().id("111").balance(0.0).currency("NOK").owner("Ian").build());
 
     when(accountProvider.getAccount("222"))
-        .thenReturn(Account.builder()
-            .id("222")
-            .balance(0.0)
-            .currency("NOK")
-            .owner("Ian")
-            .build());
+        .thenReturn(Account.builder().id("222").balance(0.0).currency("NOK").owner("Ian").build());
 
     var paymentController = new PaymentController(paymentProvider);
-    var response = paymentController.initiatePayment(new PaymentRequest()
-        .creditorAccount("1234")
-        .debtorAccount("5678")
-        .instructedAmount(new InstructedAmount().amount("100").currency("NOK")));
+    var response =
+        paymentController.initiatePayment(
+            new PaymentRequest()
+                .creditorAccount("1234")
+                .debtorAccount("5678")
+                .instructedAmount(new InstructedAmount().amount("100").currency("NOK")));
 
     assertNotNull(response);
     assertEquals(HttpStatus.OK, response.getStatusCode());

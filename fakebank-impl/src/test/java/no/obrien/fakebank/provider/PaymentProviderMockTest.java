@@ -24,15 +24,14 @@ public class PaymentProviderMockTest {
   @Test
   void initiatePayment_invalidAccount_throwsException() throws InvalidAccountException {
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.getAccount(anyString()))
-        .thenThrow(new InvalidAccountException());
+    when(accountRepository.getAccount(anyString())).thenThrow(new InvalidAccountException());
 
     var accountProvider = new AccountProvider(accountRepository);
     var paymentProvider = new PaymentProvider(accountProvider);
 
-    assertThrows(InvalidAccountException.class, () ->
-        paymentProvider.initiatePayment("", "", new InstructedAmount())
-    );
+    assertThrows(
+        InvalidAccountException.class,
+        () -> paymentProvider.initiatePayment("", "", new InstructedAmount()));
   }
 
   /***
@@ -55,9 +54,7 @@ public class PaymentProviderMockTest {
 
     var paymentProvider = new PaymentProvider(accountProvider);
     paymentProvider.initiatePayment(
-        creditorId,
-        debtorId,
-        new InstructedAmount().amount("10").currency("GBP"));
+        creditorId, debtorId, new InstructedAmount().amount("10").currency("GBP"));
 
     assertEquals(90, debtor.getBalance());
     assertEquals(110, creditor.getBalance());

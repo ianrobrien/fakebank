@@ -18,8 +18,10 @@ public class InvalidAccountExceptionTest {
   void getAccount_invalidId_throwsInvalidAccountException() {
     var accountRepositoryMock = new AccountRepositoryMock();
 
-    var exception = assertThrows(InvalidAccountException.class, () ->
-        accountRepositoryMock.getAccount("not an account"));
+    var exception =
+        assertThrows(
+            InvalidAccountException.class,
+            () -> accountRepositoryMock.getAccount("not an account"));
     assertEquals("Invalid account details", exception.getMessage());
   }
 }

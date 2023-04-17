@@ -20,8 +20,8 @@ public class RequestInterceptor implements HandlerInterceptor {
    * @param response the http response
    * @return true if the execution should proceed
    */
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-      Object handler) {
+  public boolean preHandle(
+      HttpServletRequest request, HttpServletResponse response, Object handler) {
     // perform logic such as parsing header values, inserting a trace id or
     // performing validation
     log.info("In interceptor for request: {}", request.getRequestURI());

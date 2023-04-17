@@ -19,8 +19,7 @@ import org.springframework.http.HttpStatus;
 @SpringBootTest
 class AccountControllerTest {
 
-  @Autowired
-  private AccountMapper accountMapper;
+  @Autowired private AccountMapper accountMapper;
 
   /***
    * Verifies that a valid account returns a valid balance
@@ -30,12 +29,8 @@ class AccountControllerTest {
     var accountProvider = mock(AccountProvider.class);
     try {
       when(accountProvider.getAccount(anyString()))
-          .thenReturn(Account.builder()
-              .id("4444")
-              .balance(0.0)
-              .currency("NOK")
-              .owner("Ian")
-              .build());
+          .thenReturn(
+              Account.builder().id("4444").balance(0.0).currency("NOK").owner("Ian").build());
     } catch (InvalidAccountException e) {
       throw new RuntimeException(e);
     }
@@ -57,13 +52,11 @@ class AccountControllerTest {
   void getBalance_invalidAccount_throwsException() throws InvalidAccountException {
     var accountProvider = mock(AccountProvider.class);
 
-    when(accountProvider.getAccount(anyString()))
-        .thenThrow(new InvalidAccountException());
+    when(accountProvider.getAccount(anyString())).thenThrow(new InvalidAccountException());
 
     var accountController = new AccountController(accountProvider, accountMapper);
 
-    assertThrows(InvalidAccountException.class, () ->
-        accountController.getAccountBalance(""));
+    assertThrows(InvalidAccountException.class, () -> accountController.getAccountBalance(""));
   }
 
   /***
@@ -75,12 +68,8 @@ class AccountControllerTest {
     var accountProvider = mock(AccountProvider.class);
     try {
       when(accountProvider.getAccount(anyString()))
-          .thenReturn(Account.builder()
-              .id("4444")
-              .balance(0.0)
-              .currency("NOK")
-              .owner("Ian")
-              .build());
+          .thenReturn(
+              Account.builder().id("4444").balance(0.0).currency("NOK").owner("Ian").build());
     } catch (InvalidAccountException e) {
       throw new RuntimeException(e);
     }
@@ -102,12 +91,10 @@ class AccountControllerTest {
   void getAccountDetails_invalidAccount_throwsException() throws InvalidAccountException {
     var accountProvider = mock(AccountProvider.class);
 
-    when(accountProvider.getAccount(anyString()))
-        .thenThrow(new InvalidAccountException());
+    when(accountProvider.getAccount(anyString())).thenThrow(new InvalidAccountException());
 
     var accountController = new AccountController(accountProvider, accountMapper);
 
-    assertThrows(InvalidAccountException.class, () ->
-        accountController.getAccountDetails(""));
+    assertThrows(InvalidAccountException.class, () -> accountController.getAccountDetails(""));
   }
 }

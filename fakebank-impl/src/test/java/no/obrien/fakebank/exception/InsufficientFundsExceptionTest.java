@@ -25,21 +25,20 @@ public class InsufficientFundsExceptionTest {
     var accountProvider = mock(AccountProvider.class);
 
     try {
-      when(accountProvider.getAccount(anyString()))
-          .thenReturn(Account.builder().build());
+      when(accountProvider.getAccount(anyString())).thenReturn(Account.builder().build());
     } catch (InvalidAccountException e) {
       throw new RuntimeException(e);
     }
 
     var paymentProvider = new PaymentProvider(accountProvider);
 
-    var exception = assertThrows(InsufficientFundsException.class, () ->
-        paymentProvider.initiatePayment(
-            "111",
-            "222",
-            new InstructedAmount().amount("100")));
+    var exception =
+        assertThrows(
+            InsufficientFundsException.class,
+            () ->
+                paymentProvider.initiatePayment(
+                    "111", "222", new InstructedAmount().amount("100")));
 
     assertEquals("Insufficient funds", exception.getMessage());
   }
-
 }
