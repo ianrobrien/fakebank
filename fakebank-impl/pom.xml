@@ -17,7 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>6.0.8</spring.version>
     <spring.boot.version>3.0.6</spring.boot.version>
-    <mapstruct.version>1.5.4.Final</mapstruct.version>
+    <mapstruct.version>1.5.5.Final</mapstruct.version>
     <mockito-core.version>5.3.1</mockito-core.version>
   </properties>
 
