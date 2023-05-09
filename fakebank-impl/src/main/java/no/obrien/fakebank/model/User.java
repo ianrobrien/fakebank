@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,14 +11,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /***
- * The internal representation of an Account persisted in the system
+ * Represent a User entity
  */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Builder
 @Entity
-public class Account {
+public class User {
 
   /***
    * The account ID (e.g. 1111)
@@ -28,18 +27,15 @@ public class Account {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @ManyToOne
-  private User owner;
-
   /***
-   * The account balance (e.g. 256.16)
+   * The account owner first name (e.g. Ian Robert)
    */
   @Setter
-  private double balance;
+  private String firstName;
 
   /***
-   * The account currency (e.g. USD)
+   * The account owner last name (e.g. O'Brien)
    */
   @Setter
-  private String currency;
+  private String lastName;
 }

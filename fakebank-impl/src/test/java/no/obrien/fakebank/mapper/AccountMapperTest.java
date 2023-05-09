@@ -3,13 +3,22 @@ package no.obrien.fakebank.mapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
+import no.obrien.fakebank.model.User;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * Tests the account mapper
+ */
 @SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class AccountMapperTest {
 
   private final AccountMapper accountMapper = Mappers.getMapper(AccountMapper.class);
@@ -31,7 +40,7 @@ class AccountMapperTest {
 
     var balance = 100.00;
     var currency = "NOK";
-    var id = "12345";
+    var id = 12345L;
 
     var account = Account.builder().balance(balance).currency(currency).id(id).build();
 
@@ -59,8 +68,11 @@ class AccountMapperTest {
 
     var balance = 100.00;
     var currency = "NOK";
-    var id = "12345";
-    var owner = "Ian Robert O'Brien";
+    var id = 12345L;
+    var userId = 1L;
+
+    var owner = mock(User.class);
+    when(owner.getId()).thenReturn(userId);
 
     var account = Account.builder().balance(balance).currency(currency).id(id).owner(owner).build();
 
@@ -69,6 +81,6 @@ class AccountMapperTest {
     assertEquals(balance, Double.parseDouble(accountDetails.getBalance()));
     assertEquals(currency, accountDetails.getCurrency());
     assertEquals(id, accountDetails.getAccountId());
-    assertEquals(owner, accountDetails.getOwnerName());
+    assertEquals(userId, accountDetails.getOwnerId());
   }
 }

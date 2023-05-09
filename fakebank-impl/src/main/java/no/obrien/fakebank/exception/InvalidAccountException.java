@@ -3,7 +3,7 @@ package no.obrien.fakebank.exception;
 /***
  * Thrown to indicate that the given account is invalid
  */
-public class InvalidAccountException extends Exception {
+public class InvalidAccountException extends RuntimeException {
 
   /***
    * Constructs an instance of InvalidAccountException

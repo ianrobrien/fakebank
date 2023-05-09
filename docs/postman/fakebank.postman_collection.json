@@ -1,25 +1,24 @@
 {
 	"info": {
-		"_postman_id": "f10effe6-0265-4f03-b0d0-37cb7ccb6342",
+		"_postman_id": "dae12b31-c3bb-4df6-bea6-80aef273250f",
 		"name": "fakebank",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "20183872"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Account Balance (111)",
+			"name": "Account Balance (1)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/accounts/111/balance",
+					"raw": "localhost:8080/accounts/1/balance",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"accounts",
-						"111",
+						"1",
 						"balance"
 					]
 				}
@@ -47,19 +46,19 @@
 			"response": []
 		},
 		{
-			"name": "Account Details (222)",
+			"name": "Account Details (2)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/accounts/222/details",
+					"raw": "localhost:8080/accounts/2/details",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"accounts",
-						"222",
+						"2",
 						"details"
 					]
 				}
@@ -67,13 +66,13 @@
 			"response": []
 		},
 		{
-			"name": "Payment (111 to 222)",
+			"name": "Payment (1 to 2)",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"debtorAccount\": 111,\n    \"creditorAccount\": 222,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"raw": "{\n    \"debtorAccount\": 1,\n    \"creditorAccount\": 2,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,13 +93,13 @@
 			"response": []
 		},
 		{
-			"name": "Payment (222 to 111)",
+			"name": "Payment (2 to 1)",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"debtorAccount\": 222,\n    \"creditorAccount\": 111,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"raw": "{\n    \"debtorAccount\": 2,\n    \"creditorAccount\": 1,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"

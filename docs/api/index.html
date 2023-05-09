@@ -693,7 +693,8 @@
   "type" : "object",
   "properties" : {
     "accountId" : {
-      "type" : "string"
+      "type" : "integer",
+      "format" : "int64"
     },
     "balance" : {
       "type" : "string"
@@ -707,15 +708,17 @@
   "type" : "object",
   "properties" : {
     "accountId" : {
-      "type" : "string"
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "ownerId" : {
+      "type" : "integer",
+      "format" : "int64"
     },
     "balance" : {
       "type" : "string"
     },
     "currency" : {
-      "type" : "string"
-    },
-    "ownerName" : {
       "type" : "string"
     }
   }
@@ -743,10 +746,12 @@
   "type" : "object",
   "properties" : {
     "creditorAccount" : {
-      "type" : "string"
+      "type" : "integer",
+      "format" : "int64"
     },
     "debtorAccount" : {
-      "type" : "string"
+      "type" : "integer",
+      "format" : "int64"
     },
     "instructedAmount" : {
       "$ref" : "#/components/schemas/InstructedAmount"
@@ -850,7 +855,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        String accountId = accountId_example; // String | 
+        Long accountId = 789; // Long | 
         try {
             AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
@@ -869,7 +874,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String accountId = accountId_example; // String | 
+        Long accountId = 789; // Long | 
         try {
             AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
@@ -885,7 +890,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getAccountBalance-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *accountId = accountId_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">Long *accountId = 789; // 
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -906,7 +911,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var FakebankApi = require('fakebank_api');
 
 var api = new FakebankApi.DefaultApi()
-var accountId = accountId_example; // {{String}} 
+var accountId = 789; // {{Long}} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -937,7 +942,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var accountId = accountId_example;  // String | 
+            var accountId = 789;  // Long | 
 
             try
             {
@@ -960,7 +965,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$accountId = accountId_example; // String | 
+$accountId = 789; // Long | 
 
 try {
     $result = $api_instance->getAccountBalance($accountId);
@@ -977,7 +982,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $accountId = accountId_example; # String | 
+my $accountId = 789; # Long | 
 
 eval { 
     my $result = $api_instance->getAccountBalance(accountId => $accountId);
@@ -997,7 +1002,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-accountId = accountId_example # String | 
+accountId = 789 # Long | 
 
 try: 
     # Get the balance for the specified account
@@ -1024,8 +1029,11 @@ except ApiException as e:
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
-                                                      String
+                                                      Long
                                                   </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
                                   
                                               </div>
                                                   <div class="inner required">
@@ -1191,7 +1199,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        String accountId = accountId_example; // String | 
+        Long accountId = 789; // Long | 
         try {
             AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
@@ -1210,7 +1218,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String accountId = accountId_example; // String | 
+        Long accountId = 789; // Long | 
         try {
             AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
@@ -1226,7 +1234,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getAccountDetails-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *accountId = accountId_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">Long *accountId = 789; // 
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1247,7 +1255,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var FakebankApi = require('fakebank_api');
 
 var api = new FakebankApi.DefaultApi()
-var accountId = accountId_example; // {{String}} 
+var accountId = 789; // {{Long}} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1278,7 +1286,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var accountId = accountId_example;  // String | 
+            var accountId = 789;  // Long | 
 
             try
             {
@@ -1301,7 +1309,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$accountId = accountId_example; // String | 
+$accountId = 789; // Long | 
 
 try {
     $result = $api_instance->getAccountDetails($accountId);
@@ -1318,7 +1326,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $accountId = accountId_example; # String | 
+my $accountId = 789; # Long | 
 
 eval { 
     my $result = $api_instance->getAccountDetails(accountId => $accountId);
@@ -1338,7 +1346,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-accountId = accountId_example # String | 
+accountId = 789 # Long | 
 
 try: 
     # Get the details for the specified account
@@ -1365,8 +1373,11 @@ except ApiException as e:
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
-                                                      String
+                                                      Long
                                                   </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
                                   
                                               </div>
                                                   <div class="inner required">
@@ -1486,7 +1497,8 @@ except ApiException as e:
                       <article id="api-Default-initiatePayment-0" data-group="User" data-name="initiatePayment" data-version="0">
                         <div class="pull-left">
                           <h1>initiatePayment</h1>
-                          <p>Transfer the specified amount from the debtor account to the creditor account</p>
+                          <p>Transfer the specified amount from the debtor account to the creditor account
+</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -1571,6 +1583,7 @@ public class DefaultApiExample {
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Transfer the specified amount from the debtor account to the creditor account
+
 [apiInstance initiatePaymentWith:body
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -1620,6 +1633,7 @@ namespace Example
             try
             {
                 // Transfer the specified amount from the debtor account to the creditor account
+
                 apiInstance.initiatePayment(body);
             }
             catch (Exception e)
@@ -1676,6 +1690,7 @@ body =  # PaymentRequest | Optional description in *Markdown*
 
 try: 
     # Transfer the specified amount from the debtor account to the creditor account
+
     api_instance.initiate_payment(body)
 except ApiException as e:
     print("Exception when calling DefaultApi->initiatePayment: %s\n" % e)</code></pre>

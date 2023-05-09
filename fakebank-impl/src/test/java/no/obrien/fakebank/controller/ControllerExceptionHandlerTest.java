@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 
+/***
+ * Tests the controller exception handler
+ */
 @SpringBootTest
 public class ControllerExceptionHandlerTest {
 

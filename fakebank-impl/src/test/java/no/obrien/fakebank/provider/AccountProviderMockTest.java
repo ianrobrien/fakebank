@@ -4,11 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.model.Account;
+import no.obrien.fakebank.model.User;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
 
+/***
+ * Tests the account provider
+ */
 public class AccountProviderMockTest {
 
   /***
@@ -17,15 +22,22 @@ public class AccountProviderMockTest {
    */
   @Test
   void getAccount_validInput_validOutput() throws InvalidAccountException {
-    var id = "111";
+    var id = 111L;
     var balance = 0.0;
     var currency = "NOK";
-    var owner = "Ian Robert O'Brien";
+
+    var owner = mock(User.class);
+    when(owner.getFirstName()).thenReturn("Ian Robert");
+    when(owner.getLastName()).thenReturn("O'Brien");
 
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.getAccount(id))
+    when(accountRepository.findById(id))
         .thenReturn(
-            Account.builder().id(id).balance(balance).currency(currency).owner(owner).build());
+            Optional.of(Account.builder()
+                .id(id)
+                .balance(balance)
+                .currency(currency)
+                .owner(owner).build()));
 
     var accountProvider = new AccountProvider(accountRepository);
 
@@ -33,6 +45,5 @@ public class AccountProviderMockTest {
     assertEquals(id, account.getId());
     assertEquals(balance, account.getBalance());
     assertEquals(currency, account.getCurrency());
-    assertEquals(owner, account.getOwner());
   }
 }

@@ -1,12 +1,14 @@
 package no.obrien.fakebank.exception;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import no.obrien.fakebank.repository.AccountRepositoryMock;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/***
+ * Tests the invalid account exception
+ */
 @SpringBootTest
 public class InvalidAccountExceptionTest {
 
@@ -15,13 +17,9 @@ public class InvalidAccountExceptionTest {
    * exception
    */
   @Test()
-  void getAccount_invalidId_throwsInvalidAccountException() {
+  void getAccount_invalidId_returnsNoResult() {
     var accountRepositoryMock = new AccountRepositoryMock();
-
-    var exception =
-        assertThrows(
-            InvalidAccountException.class,
-            () -> accountRepositoryMock.getAccount("not an account"));
-    assertEquals("Invalid account details", exception.getMessage());
+    var account = accountRepositoryMock.findById(-1L);
+    assertTrue(account.isEmpty());
   }
 }

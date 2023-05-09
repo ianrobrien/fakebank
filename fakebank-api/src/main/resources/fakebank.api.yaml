@@ -18,7 +18,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
       responses:
         '200':
           description: successful operation
@@ -41,7 +42,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
       responses:
         '200':
           description: successful operation
@@ -57,7 +59,9 @@ paths:
                 $ref: '#/components/schemas/GeneralError'
   /payments:
     post:
-      summary: 'Transfer the specified amount from the debtor account to the creditor account'
+      summary: >
+        Transfer the specified amount from the debtor account to the creditor
+        account
       operationId: initiatePayment
       requestBody:
         description: Optional description in *Markdown*
@@ -89,7 +93,8 @@ components:
       type: object
       properties:
         accountId:
-          type: string
+          type: integer
+          format: int64
         balance:
           type: string
         currency:
@@ -98,20 +103,24 @@ components:
       type: object
       properties:
         accountId:
-          type: string
+          type: integer
+          format: int64
+        ownerId:
+          type: integer
+          format: int64
         balance:
           type: string
         currency:
-          type: string
-        ownerName:
           type: string
     PaymentRequest:
       type: object
       properties:
         creditorAccount:
-          type: string
+          type: integer
+          format: int64
         debtorAccount:
-          type: string
+          type: integer
+          format: int64
         instructedAmount:
           $ref: '#/components/schemas/InstructedAmount'
     InstructedAmount:
