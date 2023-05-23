@@ -96,18 +96,6 @@
       <version>2.0.7</version>
     </dependency>
 
-    <!--Dependabot Security-->
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
-      <version>3.5.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.yaml</groupId>
-      <artifactId>snakeyaml</artifactId>
-      <version>2.0</version>
-    </dependency>
-
     <!--Server API-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
