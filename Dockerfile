@@ -8,7 +8,7 @@ RUN mvn -f /home/app/pom.xml clean install -DskipTests
 #
 # Package stage
 #
-FROM eclipse-temurin:20-alpine@sha256:83f609aa050cce0490f10c07d36548e12973a9100d7144b87fb16f2897ff323a
+FROM eclipse-temurin:20-alpine@sha256:caaf2247655613ab70bac6a5b927d85a6df223c8697c73c18cba804f297048d3
 COPY --from=build /home/app/fakebank-impl/target/fakebank-impl-1.0-SNAPSHOT.jar /usr/local/lib/fakebank.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/usr/local/lib/fakebank.jar"]
