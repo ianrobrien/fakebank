@@ -1,10 +1,39 @@
+---
 version: "3"
+
 services:
+
   fakebank:
-    build: .
+    container_name: fakebank
+    build:
+      context: .
+      dockerfile: docker-compose/Dockerfile.build
     ports:
       - "8080:8080"
-    healthcheck:
-      test: "exit 0"
     environment:
-      - "SPRING_PROFILES_ACTIVE=dev"
+      - "SPRING_PROFILES_ACTIVE=local"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    container_name: database
+    build:
+      context: .
+      dockerfile: docker-compose/Dockerfile.db
+    # NOTE: use of "mysql_native_password" is not recommended:
+    # https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: fakebank
+    volumes:
+      - ./fakebank-impl/src/main/resources/db/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    healthcheck:
+      test: [ "CMD","mysqladmin","ping","-h","localhost" ]
+      timeout: 10s
+      retries: 10

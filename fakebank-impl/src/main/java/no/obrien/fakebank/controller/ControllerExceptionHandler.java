@@ -9,12 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/***
+ * Handles exceptions thrown by the controllers
+ */
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
   /***
    * Handles invalid account exceptions
-   * @return
+   * @return the error response
    */
   @ExceptionHandler(InvalidAccountException.class)
   public ResponseEntity<GeneralError> handleInvalidAccountException() {
@@ -24,7 +27,7 @@ public class ControllerExceptionHandler {
 
   /***
    * Handles insufficient funds exceptions
-   * @return
+   * @return the error response
    */
   @ExceptionHandler(InsufficientFundsException.class)
   public ResponseEntity<GeneralError> handleInsufficientFundsException() {
@@ -34,7 +37,7 @@ public class ControllerExceptionHandler {
 
   /***
    * Handles invalid payment request exceptions
-   * @return
+   * @return the error response
    */
   @ExceptionHandler(InvalidPaymentRequestException.class)
   public ResponseEntity<GeneralError> handleInvalidPaymentRequest() {

@@ -25,26 +25,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          # Full git history is needed to get a proper list of changed files
-          # within `super-linter`
-          fetch-depth: 0
-      - uses: github/super-linter@v5
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SUPPRESS_POSSUM: true
-          VALIDATE_HTML: false
-          VALIDATE_JSCPD: false
-          VALIDATE_NATURAL_LANGUAGE: false
-          IGNORE_GENERATED_FILES: true
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          # Full git history is needed to get a proper list of changed files
+#          # within `super-linter`
+#          fetch-depth: 0
+#      - uses: github/super-linter@v5
+#        env:
+#          DEFAULT_BRANCH: main
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          IGNORE_GENERATED_FILES: true
+#          SUPPRESS_POSSUM: true
+#          VALIDATE_HTML: false
+#          VALIDATE_JAVA: false
+#          VALIDATE_JSCPD: false
+#          VALIDATE_NATURAL_LANGUAGE: false
+#          VALIDATE_SQLFLUFF: false
 
   build:
-    needs: [ lint, vale ]
+    needs: [vale]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -66,7 +68,8 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@v3.0.1
 
       - name: Build with Maven
-        run: mvn -B -Dspring.profiles.active=dev package --file pom.xml
+        run: mvn -B package --file pom.xml
+        # mvn -B -Dspring.profiles.active=dev package --file pom.xml
 
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2

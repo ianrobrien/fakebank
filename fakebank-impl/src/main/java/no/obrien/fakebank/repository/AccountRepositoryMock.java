@@ -1,11 +1,11 @@
 package no.obrien.fakebank.repository;
 
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.model.Account;
-import org.springframework.context.annotation.Profile;
+import no.obrien.fakebank.model.User;
 import org.springframework.stereotype.Component;
 
 /***
@@ -15,38 +15,93 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-@Profile({"dev", "default"})
 @Slf4j
-public class AccountRepositoryMock implements AccountRepository {
+public final class AccountRepositoryMock implements AccountRepository {
 
   // The initial accounts to be returned by the mock repository
   private final List<Account> accounts =
       List.of(
           Account.builder()
-              .id("111")
+              .id(111L)
               .currency("GBP")
               .balance(100)
-              .owner("Ian Robert O'Brien")
+              .owner(User.builder()
+                  .id(1L)
+                  .firstName("Ian Robert")
+                  .lastName("O'Brien")
+                  .build())
               .build(),
           Account.builder()
-              .id("222")
+              .id(222L)
               .currency("GBP")
               .balance(200)
-              .owner("Jenny Wold O'Brien")
+              .owner(User.builder()
+                  .id(1L)
+                  .firstName("Jenny Wold")
+                  .lastName("O'Brien")
+                  .build())
               .build());
 
-  /***
-   * Returns the given account
-   * @param accountId the id of the requested account
-   * @return the given account
-   * @throws InvalidAccountException when the id is invalid or the account is not found
-   */
   @Override
-  public Account getAccount(String accountId) throws InvalidAccountException {
+  public <S extends Account> S save(S entity) {
+    return null;
+  }
+
+  @Override
+  public <S extends Account> Iterable<S> saveAll(Iterable<S> entities) {
+    return null;
+  }
+
+  @Override
+  public Optional<Account> findById(Long accountId) {
     log.info("Fetching account from repository with id {}", accountId);
     return accounts.stream()
         .filter(a -> a.getId().equals(accountId))
-        .findFirst()
-        .orElseThrow(InvalidAccountException::new);
+        .findFirst();
+  }
+
+  @Override
+  public boolean existsById(Long aLong) {
+    return false;
+  }
+
+  @Override
+  public Iterable<Account> findAll() {
+    return null;
+  }
+
+  @Override
+  public Iterable<Account> findAllById(Iterable<Long> longs) {
+    return null;
+  }
+
+  @Override
+  public long count() {
+    return 0;
+  }
+
+  @Override
+  public void deleteById(Long aLong) {
+
+  }
+
+  @Override
+  public void delete(Account entity) {
+
+  }
+
+  @Override
+  public void deleteAllById(Iterable<? extends Long> longs) {
+
+  }
+
+  @Override
+  public void deleteAll(Iterable<? extends Account> entities) {
+
+  }
+
+  @Override
+  public void deleteAll() {
+
   }
 }

@@ -13,7 +13,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
   /***
    * Add a custom request interceptor
-   * @param registry
+   * @param registry the interceptor registry
    */
   @Override
   public void addInterceptors(InterceptorRegistry registry) {

@@ -20,7 +20,7 @@ public interface AccountMapper {
   @Mapping(target = "accountId", source = "id")
   @Mapping(target = "balance", source = "balance", numberFormat = "#.00")
   @Mapping(target = "currency", source = "currency")
-  @Mapping(target = "ownerName", source = "owner")
+  @Mapping(target = "ownerId", source = "account.owner.id")
   AccountDetails toAccountDetails(Account account);
 
   /***

@@ -31,7 +31,7 @@ public class AccountController implements AccountsApi {
    */
   @SneakyThrows
   @Override
-  public ResponseEntity<AccountBalance> getAccountBalance(String accountId) {
+  public ResponseEntity<AccountBalance> getAccountBalance(Long accountId) {
     log.info("Received getAccountBalance request for account {}", accountId);
     Account account = accountProvider.getAccount(accountId);
     return ResponseEntity.ok(accountMapper.toAccountBalance(account));
@@ -44,7 +44,7 @@ public class AccountController implements AccountsApi {
    */
   @SneakyThrows
   @Override
-  public ResponseEntity<AccountDetails> getAccountDetails(String accountId) {
+  public ResponseEntity<AccountDetails> getAccountDetails(Long accountId) {
     log.info("Received getAccountDetails request for account {}", accountId);
     Account account = accountProvider.getAccount(accountId);
     return ResponseEntity.ok(accountMapper.toAccountDetails(account));

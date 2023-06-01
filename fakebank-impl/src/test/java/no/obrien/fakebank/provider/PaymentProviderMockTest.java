@@ -2,7 +2,7 @@ package no.obrien.fakebank.provider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -13,25 +13,29 @@ import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+/***
+ * Tests the payment provider
+ */
+@ExtendWith(MockitoExtension.class)
 public class PaymentProviderMockTest {
 
   /***
    * Verify that initiating a payment with an invalid account id throws and invalid account
    * exception
-   * @throws InvalidAccountException
    */
   @Test
-  void initiatePayment_invalidAccount_throwsException() throws InvalidAccountException {
+  void initiatePayment_invalidAccount_throwsException() {
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.getAccount(anyString())).thenThrow(new InvalidAccountException());
+    when(accountRepository.findById(anyLong())).thenThrow(new InvalidAccountException());
 
-    var accountProvider = new AccountProvider(accountRepository);
-    var paymentProvider = new PaymentProvider(accountProvider);
+    var paymentProvider = new PaymentProvider(new AccountProvider(accountRepository));
 
     assertThrows(
         InvalidAccountException.class,
-        () -> paymentProvider.initiatePayment("", "", new InstructedAmount()));
+        () -> paymentProvider.initiatePayment(-1L, -1L, new InstructedAmount()));
   }
 
   /***
@@ -42,8 +46,8 @@ public class PaymentProviderMockTest {
   @Test
   void initiatePayment_validRequest_updatesBalance()
       throws InvalidAccountException, InsufficientFundsException, InvalidPaymentRequestException {
-    var debtorId = "111";
-    var creditorId = "222";
+    var debtorId = 111L;
+    var creditorId = 222L;
 
     var debtor = Account.builder().balance(100).id(debtorId).build();
     var creditor = Account.builder().balance(100).id(creditorId).build();

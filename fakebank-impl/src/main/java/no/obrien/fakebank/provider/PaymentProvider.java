@@ -7,7 +7,6 @@ import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 /***
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-@Profile({"dev", "default"})
 @Slf4j
 public class PaymentProvider {
 
@@ -28,7 +26,7 @@ public class PaymentProvider {
    * @param instructedAmount the amount to be sent
    */
   public void initiatePayment(
-      String creditorAccountId, String debtorAccountId, InstructedAmount instructedAmount)
+      Long creditorAccountId, Long debtorAccountId, InstructedAmount instructedAmount)
       throws InsufficientFundsException, InvalidAccountException, InvalidPaymentRequestException {
     log.info("Initiate payment from PaymentProvider");
 
