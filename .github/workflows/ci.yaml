@@ -16,6 +16,23 @@ env:
   IMAGE_NAME: fakebank
 
 jobs:
+  changes:
+    name: "Checking folders for changes"
+    runs-on: ubuntu-latest
+    outputs:
+      terraform: ${{ steps.changes.outputs.terraform }}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2.11.1
+        id: changes
+        with:
+          filters: |
+            terraform:
+              - 'infrastructure/terraform/**'
+            fakebank:
+              - 'fakebank-impl/**'
+
   vale:
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +66,8 @@ jobs:
   #          VALIDATE_SQLFLUFF: false
 
   build:
-    needs: [ vale ]
+    needs: [ vale, changes ]
+    if: ${{ needs.changes.outputs.fakebank == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -97,12 +115,12 @@ jobs:
           path: icm-impl/target/site/jacoco/
 
   push-store-image:
-    needs: [ vale, build ]
+    needs: [ vale, build, changes ]
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && ${{ needs.changes.outputs.fakebank == 'true' }}
     steps:
       - uses: actions/checkout@v3
 
