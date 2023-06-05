@@ -12,7 +12,6 @@ on:
 permissions:
   contents: write
 
-
 env:
   IMAGE_NAME: fakebank
 
@@ -83,13 +82,13 @@ jobs:
           coverage-label: Coverage
 
       - name: Commit and push the coverage badge
-        if: github.ref == 'refs/heads/main'
+        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
           message: 'Commit coverage badge'
           add: '*.svg'
-          push: -f
+          new_branch: ${{GITHUB_REF_NAME}}-coverage-badge
 
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v3
