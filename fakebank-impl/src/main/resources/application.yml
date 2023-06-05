@@ -1,14 +1,3 @@
 spring:
   mustache:
     check-template-location: false
-  jpa:
-    show-sql: true
-    database: mysql
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-  datasource:
-    url: jdbc:mysql://localhost:3306/fakebank?useSSL=false&serverTimezone=UTC
-    username: root
-    password: example
-    driver-class-name: com.mysql.cj.jdbc.Driver

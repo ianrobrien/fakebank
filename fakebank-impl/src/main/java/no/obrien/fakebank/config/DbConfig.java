@@ -30,7 +30,7 @@ public class DbConfig {
    * @return the data source
    */
   @Bean
-  @Profile({"prod", "local"})
+  @Profile({"prod", "local", "dev"})
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource(
         url,
