@@ -75,6 +75,7 @@ jobs:
         # mvn -B -Dspring.profiles.active=dev package --file pom.xml
 
       - name: Generate JaCoCo Badge
+        if: github.ref != 'refs/heads/main'
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
@@ -88,7 +89,7 @@ jobs:
           default_author: github_actions
           message: 'Commit coverage badge'
           add: '*.svg'
-          new_branch: ${{GITHUB_REF_NAME}}-coverage-badge
+          new_branch: ${{github.ref_name}}-coverage-badge
 
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v3
