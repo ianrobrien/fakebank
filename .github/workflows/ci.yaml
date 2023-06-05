@@ -108,7 +108,7 @@ jobs:
 
       - name: 'Build fakebank image'
         run: |
-          docker build -file docker-compose/Dockerfile.fakebank . --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+          docker build --file docker-compose/Dockerfile.fakebank . --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
