@@ -74,21 +74,21 @@ jobs:
         run: mvn -B package --file pom.xml
         # mvn -B -Dspring.profiles.active=dev package --file pom.xml
 
-      - name: Generate JaCoCo Badge
-        uses: cicirello/jacoco-badge-generator@v2
-        with:
-          generate-branches-badge: true
-          jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
-          coverage-label: Coverage
+      # - name: Generate JaCoCo Badge
+      #   uses: cicirello/jacoco-badge-generator@v2
+      #   with:
+      #     generate-branches-badge: true
+      #     jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
+      #     coverage-label: Coverage
 
-      - name: Commit and push the coverage badge
-        if: github.ref != 'refs/heads/main'
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: 'Commit coverage badge'
-          add: '*.svg'
-          new_branch: ${{GITHUB_REF_NAME}}-coverage-badge
+      # - name: Commit and push the coverage badge
+      #   if: github.ref != 'refs/heads/main'
+      #   uses: EndBug/add-and-commit@v9
+      #   with:
+      #     default_author: github_actions
+      #     message: 'Commit coverage badge'
+      #     add: '*.svg'
+      #     new_branch: ${{GITHUB_REF_NAME}}-coverage-badge
 
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v3
