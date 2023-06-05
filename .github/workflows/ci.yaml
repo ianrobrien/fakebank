@@ -109,7 +109,6 @@ jobs:
       - name: 'Build fakebank image'
         run: |
           docker build -f docker-compose/Dockerfile.fakebank . --tag ghcr.io/ianrobrien/store:latest
-          docker push ghcr.io/ianrobrien/store:latest
 
       - name: Log in to registry
         run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u $ --password-stdin
