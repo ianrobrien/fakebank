@@ -42,10 +42,9 @@ resource "aws_instance" "web" {
   user_data = <<-EOF
               #!/bin/bash
               apt-get update
-              apt-get install -y apache2
-              sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "Hello World" > /var/www/html/index.html
-              systemctl restart apache2
+              apt-get install -y docker
+              docker pull ghcr.io/ianrobrien/fakebank:latest
+              docker run -it --rm fakebank -p 8080:8080
               EOF
 }
 
@@ -57,7 +56,7 @@ resource "aws_security_group" "web-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
+  // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install docker`
   egress {
     from_port   = 0
     to_port     = 0
