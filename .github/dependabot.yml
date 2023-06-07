@@ -3,18 +3,21 @@
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "maven" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "maven"
+    directory: "/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/docker-compose" # Location of package manifests
+  - package-ecosystem: "docker"
+    directory: "/docker-compose"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "terraform"
+    directory: "/infrastructure/terraform"
     schedule:
       interval: "weekly"
