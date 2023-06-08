@@ -5,11 +5,12 @@ import no.obrien.fakebank.model.AccountBalance;
 import no.obrien.fakebank.model.AccountDetails;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants.ComponentModel;
 
 /***
  * Provides mapping functions for the Account class
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = ComponentModel.SPRING)
 public interface AccountMapper {
 
   /***
