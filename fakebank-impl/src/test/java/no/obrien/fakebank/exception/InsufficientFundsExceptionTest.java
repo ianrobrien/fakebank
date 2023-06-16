@@ -40,7 +40,7 @@ public class InsufficientFundsExceptionTest {
             InsufficientFundsException.class,
             () ->
                 paymentProvider.initiatePayment(
-                    111L, 222L, new InstructedAmount().amount("100")));
+                    1L, 2L, new InstructedAmount().amount("100")));
 
     assertEquals("Insufficient funds", exception.getMessage());
   }

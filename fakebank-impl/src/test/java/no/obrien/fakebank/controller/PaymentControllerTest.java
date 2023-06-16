@@ -47,8 +47,8 @@ class PaymentControllerTest {
         () ->
             paymentController.initiatePayment(
                 new PaymentRequest()
-                    .creditorAccount(111L)
-                    .debtorAccount(111L)
+                    .creditorAccount(1L)
+                    .debtorAccount(1L)
                     .instructedAmount(new InstructedAmount().amount("-10.00"))));
   }
 
@@ -91,7 +91,7 @@ class PaymentControllerTest {
 
     when(accountProvider.getAccount(anyLong()))
         .thenReturn(
-            Account.builder().id(111L).balance(0.0).currency("NOK").owner(owner).build());
+            Account.builder().id(1L).balance(0.0).currency("NOK").owner(owner).build());
 
     var paymentController = new PaymentController(paymentProvider);
     assertThrows(
@@ -118,13 +118,13 @@ class PaymentControllerTest {
     when(owner.getLastName()).thenReturn("O'Brien");
     when(owner.getId()).thenReturn(1L);
 
-    when(accountProvider.getAccount(111L))
+    when(accountProvider.getAccount(1L))
         .thenReturn(
-            Account.builder().id(111L).balance(0.0).currency("NOK").owner(owner).build());
+            Account.builder().id(1L).balance(0.0).currency("NOK").owner(owner).build());
 
-    when(accountProvider.getAccount(222L))
+    when(accountProvider.getAccount(2L))
         .thenReturn(
-            Account.builder().id(222L).balance(0.0).currency("NOK").owner(owner).build());
+            Account.builder().id(2L).balance(0.0).currency("NOK").owner(owner).build());
 
     var paymentController = new PaymentController(paymentProvider);
     var response =
