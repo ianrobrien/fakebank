@@ -7,7 +7,9 @@ import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
+import no.obrien.fakebank.repository.AccountRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /***
  * Provides payment requests
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Component;
 public class PaymentProvider {
 
   private final AccountProvider accountProvider;
+  private final AccountRepository accountRepository;
 
   /***
    * Initiates a payment with the given request
@@ -25,6 +28,7 @@ public class PaymentProvider {
    * @param debtorAccountId the destination of the amount
    * @param instructedAmount the amount to be sent
    */
+  @Transactional
   public void initiatePayment(
       Long creditorAccountId, Long debtorAccountId, InstructedAmount instructedAmount)
       throws InsufficientFundsException, InvalidAccountException, InvalidPaymentRequestException {
@@ -38,6 +42,9 @@ public class PaymentProvider {
 
     creditorAccount.setBalance(creditorAccount.getBalance() + amount);
     debtorAccount.setBalance(debtorAccount.getBalance() - amount);
+
+    accountRepository.save(creditorAccount);
+    accountRepository.save(debtorAccount);
   }
 
   /***

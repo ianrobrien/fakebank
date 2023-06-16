@@ -37,7 +37,7 @@ public class InvalidPaymentRequestExceptionTest {
             InvalidPaymentRequestException.class,
             () ->
                 paymentProvider.initiatePayment(
-                    111L, 222L, new InstructedAmount().amount("-10.0")));
+                    1L, 2L, new InstructedAmount().amount("-10.0")));
 
     assertEquals("Invalid payment request", exception.getMessage());
   }

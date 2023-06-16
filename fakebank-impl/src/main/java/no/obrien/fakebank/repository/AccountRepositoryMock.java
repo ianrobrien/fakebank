@@ -22,7 +22,7 @@ public final class AccountRepositoryMock implements AccountRepository {
   private final List<Account> accounts =
       List.of(
           Account.builder()
-              .id(111L)
+              .id(1L)
               .currency("GBP")
               .balance(100)
               .owner(User.builder()
@@ -32,7 +32,7 @@ public final class AccountRepositoryMock implements AccountRepository {
                   .build())
               .build(),
           Account.builder()
-              .id(222L)
+              .id(2L)
               .currency("GBP")
               .balance(200)
               .owner(User.builder()

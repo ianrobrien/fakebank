@@ -22,7 +22,7 @@ public class AccountProviderMockTest {
    */
   @Test
   void getAccount_validInput_validOutput() throws InvalidAccountException {
-    var id = 111L;
+    var id = 1L;
     var balance = 0.0;
     var currency = "NOK";
 

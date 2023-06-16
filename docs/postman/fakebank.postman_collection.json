@@ -126,7 +126,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"debtorAccount\": 111,\n    \"creditorAccount\": 999,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
+					"raw": "{\n    \"debtorAccount\": 1,\n    \"creditorAccount\": 999,\n    \"instructedAmount\": {\n        \"amount\": 100.00,\n        \"currency\": \"GBP\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"

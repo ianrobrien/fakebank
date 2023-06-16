@@ -46,8 +46,8 @@ public class PaymentProviderMockTest {
   @Test
   void initiatePayment_validRequest_updatesBalance()
       throws InvalidAccountException, InsufficientFundsException, InvalidPaymentRequestException {
-    var debtorId = 111L;
-    var creditorId = 222L;
+    var debtorId = 1L;
+    var creditorId = 2L;
 
     var debtor = Account.builder().balance(100).id(debtorId).build();
     var creditor = Account.builder().balance(100).id(creditorId).build();
