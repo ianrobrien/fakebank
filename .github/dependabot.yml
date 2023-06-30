@@ -8,16 +8,16 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
   - package-ecosystem: "docker"
     directory: "/docker-compose"
     schedule:
-      interval: "weekly"
+      interval: "daily"
   - package-ecosystem: "terraform"
     directory: "/infrastructure/terraform"
     schedule:
-      interval: "weekly"
+      interval: "daily"
