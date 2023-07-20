@@ -7,7 +7,6 @@ import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import no.obrien.fakebank.repository.AccountRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class PaymentProvider {
 
   private final AccountProvider accountProvider;
-  private final AccountRepository accountRepository;
 
   /***
    * Initiates a payment with the given request
@@ -43,8 +41,8 @@ public class PaymentProvider {
     creditorAccount.setBalance(creditorAccount.getBalance() + amount);
     debtorAccount.setBalance(debtorAccount.getBalance() - amount);
 
-    accountRepository.save(creditorAccount);
-    accountRepository.save(debtorAccount);
+    accountProvider.saveAccount(creditorAccount);
+    accountProvider.saveAccount(debtorAccount);
   }
 
   /***

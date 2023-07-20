@@ -28,4 +28,12 @@ public class AccountProvider {
         .get()
         .orElseThrow(InvalidAccountException::new);
   }
+
+  /***
+   * Saves an account entity
+   * @param account the account to save
+   */
+  public void saveAccount(Account account) {
+    accountRepository.save(account);
+  }
 }
