@@ -123,6 +123,11 @@
       <artifactId>slf4j-api</artifactId>
       <version>2.0.7</version>
     </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.1</version>
+    </dependency>
 
     <!--Server API-->
     <dependency>
