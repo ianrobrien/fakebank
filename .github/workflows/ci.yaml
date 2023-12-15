@@ -110,7 +110,7 @@ jobs:
       #     new_branch: ${{GITHUB_REF_NAME}}-coverage-badge
 
       - name: Upload JaCoCo coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: icm-impl/target/site/jacoco/
