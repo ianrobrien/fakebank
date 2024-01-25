@@ -16,7 +16,7 @@
     <maven.compiler.target>20</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mapstruct.version>1.5.5.Final</mapstruct.version>
-    <mockito-core.version>5.9.0</mockito-core.version>
+    <mockito-core.version>5.10.0</mockito-core.version>
     <lombok.version>1.18.30</lombok.version>
     <openapi-generator-maven-plugin.version>7.2.0</openapi-generator-maven-plugin.version>
   </properties>
