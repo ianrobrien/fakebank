@@ -88,14 +88,13 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@v4.0.0
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-        # mvn -B -Dspring.profiles.active=dev package --file pom.xml
 
-      # - name: Generate JaCoCo Badge
-      #   uses: cicirello/jacoco-badge-generator@v2
-      #   with:
-      #     generate-branches-badge: true
-      #     jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
-      #     coverage-label: Coverage
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
+          coverage-label: Coverage
 
       # - name: Commit and push the coverage badge
       #   if: github.ref != 'refs/heads/main'
