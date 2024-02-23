@@ -13,26 +13,6 @@ env:
   IMAGE_NAME: fakebank
 
 jobs:
-  changes:
-    name: "Checking folders for changes"
-    runs-on: ubuntu-latest
-    outputs:
-      terraform: ${{ steps.changes.outputs.terraform }}
-      fakebank: ${{ steps.changes.outputs.fakebank }}
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3.0.1
-        id: changes
-        with:
-          filters: |
-            terraform:
-              - 'infrastructure/terraform/**'
-            fakebank:
-              - 'fakebank-api/**'
-              - 'fakebank-impl/**'
-              - 'pom.xml'
-
   vale:
     name: Vale
     runs-on: ubuntu-latest
@@ -74,7 +54,6 @@ jobs:
   build:
     name: Build
     needs: [vale, changes]
-    if: ${{ needs.changes.outputs.fakebank == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -120,7 +99,7 @@ jobs:
     permissions:
       packages: write
       contents: read
-    if: ${{ github.ref == 'refs/heads/main' &&  needs.changes.outputs.fakebank == 'true' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v4
       - name: 'Build fakebank image'
