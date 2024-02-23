@@ -53,7 +53,7 @@ jobs:
 
   build:
     name: Build
-    needs: [vale, changes]
+    needs: [vale, lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -94,7 +94,7 @@ jobs:
 
   push-store-image:
     name: Push and store image
-    needs: [vale, build, changes]
+    needs: [vale, build]
     runs-on: ubuntu-latest
     permissions:
       packages: write
