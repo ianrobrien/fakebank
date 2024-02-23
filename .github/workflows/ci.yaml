@@ -46,28 +46,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  #  lint:
-  #    runs-on: ubuntu-latest
-  #    steps:
-  #      - uses: actions/checkout@v4
-  #        with:
-  #          # Full git history is needed to get a proper list of changed files
-  #          # within `super-linter`
-  #          fetch-depth: 0
-  #      - uses: github/super-linter@v5
-  #        env:
-  #          DEFAULT_BRANCH: main
-  #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #          IGNORE_GENERATED_FILES: true
-  #          SUPPRESS_POSSUM: true
-  #          VALIDATE_HTML: false
-  #          VALIDATE_JAVA: false
-  #          VALIDATE_JSCPD: false
-  #          VALIDATE_NATURAL_LANGUAGE: false
-  #          VALIDATE_SQLFLUFF: false
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full git history is needed to get a proper list of changed files
+          # within `super-linter`
+          fetch-depth: 0
+      - uses: github/super-linter@v5
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IGNORE_GENERATED_FILES: true
+          SUPPRESS_POSSUM: true
+          VALIDATE_HTML: false
+          VALIDATE_JAVA: false
+          VALIDATE_JSCPD: false
+          VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_SQLFLUFF: false
 
   build:
-    needs: [ vale, changes ]
+    needs: [vale, changes]
     if: ${{ needs.changes.outputs.fakebank == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -112,7 +112,7 @@ jobs:
           path: icm-impl/target/site/jacoco/
 
   push-store-image:
-    needs: [ vale, build, changes ]
+    needs: [vale, build, changes]
     runs-on: ubuntu-latest
     permissions:
       packages: write
