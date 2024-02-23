@@ -43,16 +43,6 @@ public final class AccountRepositoryMock implements AccountRepository {
               .build());
 
   @Override
-  public <S extends Account> S save(S entity) {
-    return null;
-  }
-
-  @Override
-  public <S extends Account> Iterable<S> saveAll(Iterable<S> entities) {
-    return null;
-  }
-
-  @Override
   public Optional<Account> findById(Long accountId) {
     log.info("Fetching account from repository with id {}", accountId);
     return accounts.stream()
@@ -61,47 +51,57 @@ public final class AccountRepositoryMock implements AccountRepository {
   }
 
   @Override
+  public <S extends Account> S save(S entity) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public <S extends Account> Iterable<S> saveAll(Iterable<S> entities) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
   public boolean existsById(Long aLong) {
-    return false;
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Iterable<Account> findAll() {
-    return null;
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Iterable<Account> findAllById(Iterable<Long> longs) {
-    return null;
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public long count() {
-    return 0;
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void deleteById(Long aLong) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void delete(Account entity) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void deleteAllById(Iterable<? extends Long> longs) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void deleteAll(Iterable<? extends Account> entities) {
-
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void deleteAll() {
-
+    throw new UnsupportedOperationException();
   }
 }

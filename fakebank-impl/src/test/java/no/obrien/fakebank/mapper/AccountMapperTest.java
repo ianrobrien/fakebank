@@ -23,6 +23,43 @@ class AccountMapperTest {
 
   private final AccountMapper accountMapper = Mappers.getMapper(AccountMapper.class);
 
+  @Test
+  void mapAccountDetails_nullOwner() {
+    var balance = 100.00;
+    var currency = "NOK";
+    var id = 12345L;
+
+    var account = Account.builder()
+        .balance(balance)
+        .currency(currency)
+        .id(id)
+        .owner(null).build();
+
+    var accountDetails = accountMapper.toAccountDetails(account);
+    assertNull(accountDetails.getOwnerId());
+  }
+
+  @Test
+  void mapAccountDetails_nullOwnerId() {
+    var balance = 100.00;
+    var currency = "NOK";
+    var id = 12345L;
+
+    var owner = User.builder()
+        .firstName("first")
+        .lastName("last")
+        .build();
+
+    var account = Account.builder()
+        .balance(balance)
+        .currency(currency)
+        .id(id)
+        .owner(owner).build();
+
+    var accountDetails = accountMapper.toAccountDetails(account);
+    assertNull(accountDetails.getOwnerId());
+  }
+
   /***
    * Verifies that mapping a null instance returns a null result
    */
