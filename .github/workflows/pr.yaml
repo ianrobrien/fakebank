@@ -1,12 +1,8 @@
 ---
-name: Continuous Integration
+name: Pull Request
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '.github/badges'
+  pull_request:
 
 env:
   IMAGE_NAME: fakebank
@@ -72,26 +68,13 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@v4.0.0
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-      - name: Generate JaCoCo Badge
-        uses: cicirello/jacoco-badge-generator@v2
-        with:
-          generate-branches-badge: true
-          jacoco-csv-file: fakebank-impl/target/site/jacoco/jacoco.csv
-          coverage-label: Coverage
-      - name: Commit and push the coverage badge
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: 'Commit coverage badge'
-          add: '*.svg'
-          new_branch: ${{github.ref_name}}-coverage-badge
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: icm-impl/target/site/jacoco/
-  build-store-image:
-    name: Build and store image
+  build-image:
+    name: Build image
     needs: [vale, build]
     runs-on: ubuntu-latest
     permissions:
@@ -101,22 +84,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: 'Build fakebank image'
         run: |
-          docker build --file docker-compose/Dockerfile.fakebank . --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
-      - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-      - name: Push image
-        run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker build --file docker-compose/Dockerfile.fakebank .
