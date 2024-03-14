@@ -117,7 +117,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: icm-impl/target/site/jacoco/
+          path: 'www/coverage/'
   build-store-image:
     needs: [build]
     if: ${{ needs.changes.outputs.app == 'true' }}
