@@ -1,0 +1,22 @@
+meta {
+  name: Payment -Invalid Account-
+  type: http
+  seq: 6
+}
+
+post {
+  url: localhost:8080/payments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "debtorAccount": 1,
+      "creditorAccount": 999,
+      "instructedAmount": {
+          "amount": 100.00,
+          "currency": "GBP"
+      }
+  }
+}

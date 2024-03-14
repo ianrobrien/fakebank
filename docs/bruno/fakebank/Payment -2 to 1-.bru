@@ -1,0 +1,22 @@
+meta {
+  name: Payment -2 to 1-
+  type: http
+  seq: 5
+}
+
+post {
+  url: localhost:8080/payments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "debtorAccount": 2,
+      "creditorAccount": 1,
+      "instructedAmount": {
+          "amount": 100.00,
+          "currency": "GBP"
+      }
+  }
+}
