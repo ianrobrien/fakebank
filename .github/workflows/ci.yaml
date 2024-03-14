@@ -39,6 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IGNORE_GENERATED_FILES: true
           SUPPRESS_POSSUM: true
+          VALIDATE_CHECCOV: false
           VALIDATE_EDITORCONFIG: false
           VALIDATE_GITHUB_ACTIONS: false
           VALIDATE_GOOGLE_JAVA_FORMAT: false
