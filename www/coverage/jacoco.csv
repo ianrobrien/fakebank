@@ -7,7 +7,7 @@ fakebank-impl,no.obrien.fakebank.mapper,AccountMapperImpl,2,80,1,9,1,24,1,8,0,4
 fakebank-impl,no.obrien.fakebank.exception,InsufficientFundsException,0,4,0,0,0,2,0,1,0,1
 fakebank-impl,no.obrien.fakebank.exception,InvalidPaymentRequestException,0,4,0,0,0,2,0,1,0,1
 fakebank-impl,no.obrien.fakebank.exception,InvalidAccountException,0,4,0,0,0,2,0,1,0,1
-fakebank-impl,no.obrien.fakebank.filter,CorsFilter,33,3,0,0,11,1,3,1,3,1
+fakebank-impl,no.obrien.fakebank.filter,CorsFilter,0,36,0,0,0,12,0,4,0,4
 fakebank-impl,no.obrien.fakebank.interceptor,RequestInterceptor,0,14,0,0,0,4,0,3,0,3
 fakebank-impl,no.obrien.fakebank.provider,AccountProvider,6,25,0,0,2,6,1,3,1,3
 fakebank-impl,no.obrien.fakebank.provider,PaymentProvider,0,72,0,4,0,18,0,6,0,4
