@@ -31,7 +31,7 @@ import org.springframework.context.annotation.Profile;
    * @return the account provider
    */
   @Bean
-  @Profile({&quot;prod&quot;, &quot;local&quot;})
+  @Profile({&quot;local&quot;})
   public AccountProvider accountProvider(AccountRepository accountRepository) {
 <span class="nc" id="L36">    log.info(&quot;Using real account provider&quot;);</span>
 <span class="nc" id="L37">    return new AccountProvider(accountRepository);</span>
