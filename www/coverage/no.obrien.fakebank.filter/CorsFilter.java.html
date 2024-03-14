@@ -16,25 +16,25 @@ import java.io.IOException;
 
   @Override
   public void init(FilterConfig filterConfig) {
-<span class="nc" id="L19">  }</span>
+<span class="fc" id="L19">  }</span>
 
   @Override
   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
       FilterChain filterChain) throws IOException, ServletException {
-<span class="nc" id="L24">    HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;</span>
-<span class="nc" id="L25">    HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;</span>
+<span class="fc" id="L24">    HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;</span>
+<span class="fc" id="L25">    HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;</span>
 
-<span class="nc" id="L27">    httpResponse.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span>
-<span class="nc" id="L28">    httpResponse.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE&quot;);</span>
-<span class="nc" id="L29">    httpResponse.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;);</span>
-<span class="nc" id="L30">    httpResponse.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);</span>
-<span class="nc" id="L31">    httpResponse.setHeader(&quot;Access-Control-Max-Age&quot;, &quot;3600&quot;);</span>
+<span class="fc" id="L27">    httpResponse.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span>
+<span class="fc" id="L28">    httpResponse.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE&quot;);</span>
+<span class="fc" id="L29">    httpResponse.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;);</span>
+<span class="fc" id="L30">    httpResponse.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);</span>
+<span class="fc" id="L31">    httpResponse.setHeader(&quot;Access-Control-Max-Age&quot;, &quot;3600&quot;);</span>
 
-<span class="nc" id="L33">    filterChain.doFilter(httpRequest, httpResponse);</span>
-<span class="nc" id="L34">  }</span>
+<span class="fc" id="L33">    filterChain.doFilter(httpRequest, httpResponse);</span>
+<span class="fc" id="L34">  }</span>
 
   @Override
   public void destroy() {
-<span class="nc" id="L38">  }</span>
+<span class="fc" id="L38">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
