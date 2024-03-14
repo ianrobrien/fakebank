@@ -333,6 +333,7 @@
               <goal>report</goal>
             </goals>
             <configuration>
+              <outputDirectory>${project.basedir}/../docs/coverage</outputDirectory>
               <excludes>
                 <exclude>no/obrien/fakebank/Main.class</exclude>
                 <exclude>no/obrien/fakebank/api/*.class</exclude>
