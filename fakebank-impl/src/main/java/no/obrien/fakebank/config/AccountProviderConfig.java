@@ -31,7 +31,7 @@ public class AccountProviderConfig {
    * @return the account provider
    */
   @Bean
-  @Profile({"prod", "local"})
+  @Profile({"local"})
   public AccountProvider accountProvider(AccountRepository accountRepository) {
     log.info("Using real account provider");
     return new AccountProvider(accountRepository);
