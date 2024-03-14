@@ -342,7 +342,7 @@
               <inputSpec>${project.basedir}/../fakebank-api/src/main/resources/fakebank.api.yaml
               </inputSpec>
               <language>html2</language>
-              <output>${project.basedir}/../docs/api</output>
+              <output>${project.basedir}/../www/api</output>
             </configuration>
           </execution>
         </executions>
@@ -379,7 +379,7 @@
                   <goal>report</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>${project.basedir}/../docs/coverage</outputDirectory>
+                  <outputDirectory>${project.basedir}/../www/coverage</outputDirectory>
                   <excludes>
                     <exclude>no/obrien/fakebank/Main.class</exclude>
                     <exclude>no/obrien/fakebank/api/*.class</exclude>

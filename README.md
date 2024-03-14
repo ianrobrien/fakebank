@@ -1,8 +1,8 @@
 # fakebank
 
 [![Continuous Integration](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml)
-[![Coverage](.github/badges/jacoco.svg)](https://www.obrien.no/fakebank/)
-[![Coverage](.github/badges/branches.svg)](https://www.obrien.no/fakebank/)
+[![Coverage](.github/badges/jacoco.svg)](https://www.obrien.no/fakebank/coverage)
+[![Coverage](.github/badges/branches.svg)](https://www.obrien.no/fakebank/coverage)
 [![CodeQL](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml/badge.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml)
 
 ## Running the application
@@ -22,7 +22,7 @@ make local API calls.
 
 ## API Calls
 
-To see a complete specification, either check the [generated html](docs/api/index.html)
+To see a complete specification, either check the [generated html](https://www.obrien.no/fakebank/api)
 or the [yaml spec](fakebank-api/src/main/resources/fakebank.api.yaml).
 
 These calls are included in the Postman collection for your convenience.

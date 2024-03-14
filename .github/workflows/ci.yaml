@@ -79,7 +79,7 @@ jobs:
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
-          jacoco-csv-file: docs/coverage/jacoco.csv
+          jacoco-csv-file: www/coverage/jacoco.csv
           coverage-label: Coverage
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -90,7 +90,7 @@ jobs:
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           add-paths: |
             .github/badges/*.svg
-            docs/coverage
+            www/coverage
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v4
         with:
