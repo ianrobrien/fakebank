@@ -92,6 +92,8 @@ jobs:
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           commit-message: |
             Update Jacoco coverage report from commit ${{ github.sha }}
+          body: |
+            Update Jacoco coverage report from commit ${{ github.sha }}
           add-paths: |
             .github/badges/*.svg
             www/coverage
