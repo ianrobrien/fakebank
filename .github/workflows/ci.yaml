@@ -86,8 +86,11 @@ jobs:
           title: "Update Jacoco coverage badge"
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          run:
+            cp -R icm-impl/target/site/jacoco/ docs/coverage
           add-paths: |
             .github/badges/*.svg
+            docs/coverage
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v4
         with:
