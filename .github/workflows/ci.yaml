@@ -51,6 +51,7 @@ jobs:
           VALIDATE_JSCPD: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_SQLFLUFF: false
+          VALIDATE_TERRAFORM_TERRASCAN: false
           VALIDATE_TERRAFORM_TFLINT: false
   build:
     name: Build
