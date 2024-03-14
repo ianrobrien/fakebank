@@ -85,7 +85,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.CREATE_PR_TOKEN }}
-          title: "[create-pull-request] Update Jacoco coverage badge"
+          title: "[create-pull-request] Update Jacoco coverage report"
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           add-paths: |
