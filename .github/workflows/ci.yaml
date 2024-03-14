@@ -84,7 +84,7 @@ jobs:
         with:
           token: ${{ secrets.CREATE_PR_TOKEN }}
           add-paths: |
-            *.svg
+            jacoco.svg
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v4
         with:
