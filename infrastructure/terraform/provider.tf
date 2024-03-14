@@ -1,16 +1,23 @@
 terraform {
   required_providers {
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "~> 2.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
     }
   }
+
+  required_version = ">= 1.2.0"
 }
 
-provider "digitalocean" {
-  token = var.digitalocean_api_token
+provider "aws" {
+  region = "eu-north-1"
 }
 
-data "digitalocean_ssh_key" "id_ed25519_ianrobrien" {
-  name = "id_ed25519_ianrobrien"
+resource "aws_instance" "app_server" {
+  ami           = "ami-0d7a109bf30624c99"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "FakebankAppServerInstance"
+  }
 }
