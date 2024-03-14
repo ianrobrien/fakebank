@@ -87,7 +87,7 @@ jobs:
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
-            .github/badges/jacoco.svg
+            .github/badges/*.svg
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v4
         with:
