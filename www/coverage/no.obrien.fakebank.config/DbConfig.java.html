@@ -28,7 +28,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
    * @return the data source
    */
   @Bean
-  @Profile({&quot;prod&quot;, &quot;local&quot;})
+  @Profile({&quot;local&quot;})
   public DataSource dataSource() {
 <span class="nc" id="L33">    DriverManagerDataSource dataSource = new DriverManagerDataSource(</span>
         url,
