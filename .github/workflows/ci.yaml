@@ -90,7 +90,8 @@ jobs:
           title: "[create-pull-request] Update Jacoco coverage report"
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          commit-message: Update Jacoco coverage report from commit ${{ github.sha }}
+          commit-message: |
+            Update Jacoco coverage report from commit ${{ github.sha }}
           add-paths: |
             .github/badges/*.svg
             www/coverage
