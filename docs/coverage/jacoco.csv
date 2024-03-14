@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+fakebank-impl,no.obrien.fakebank.config,WebMvcConfig,0,10,0,0,0,3,0,2,0,2
+fakebank-impl,no.obrien.fakebank.config,DbConfig,32,7,0,0,4,2,5,2,5,2
+fakebank-impl,no.obrien.fakebank.config,AccountProviderConfig,8,18,0,0,2,4,1,3,1,3
+fakebank-impl,no.obrien.fakebank.repository,AccountRepositoryMock,0,109,0,0,0,39,0,15,0,15
+fakebank-impl,no.obrien.fakebank.mapper,AccountMapperImpl,2,80,1,9,1,24,1,8,0,4
+fakebank-impl,no.obrien.fakebank.exception,InsufficientFundsException,0,4,0,0,0,2,0,1,0,1
+fakebank-impl,no.obrien.fakebank.exception,InvalidPaymentRequestException,0,4,0,0,0,2,0,1,0,1
+fakebank-impl,no.obrien.fakebank.exception,InvalidAccountException,0,4,0,0,0,2,0,1,0,1
+fakebank-impl,no.obrien.fakebank.filter,CorsFilter,33,3,0,0,11,1,3,1,3,1
+fakebank-impl,no.obrien.fakebank.interceptor,RequestInterceptor,0,14,0,0,0,4,0,3,0,3
+fakebank-impl,no.obrien.fakebank.provider,AccountProvider,6,25,0,0,2,6,1,3,1,3
+fakebank-impl,no.obrien.fakebank.provider,PaymentProvider,0,72,0,4,0,18,0,6,0,4
+fakebank-impl,no.obrien.fakebank.controller,PaymentController,0,28,0,0,0,9,0,3,0,3
+fakebank-impl,no.obrien.fakebank.controller,ControllerExceptionHandler,0,33,0,0,0,7,0,4,0,4
+fakebank-impl,no.obrien.fakebank.controller,AccountController,0,49,0,0,0,10,0,4,0,4
