@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fakebank-impl</a> &gt; <a href="index.source.html" class="el_package">no.obrien.fakebank.controller</a> &gt; <span class="el_source">AccountController.java</span></div><h1>AccountController.java</h1><pre class="source lang-java linenums">package no.obrien.fakebank.controller;
+
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import no.obrien.fakebank.api.AccountsApi;
+import no.obrien.fakebank.mapper.AccountMapper;
+import no.obrien.fakebank.model.Account;
+import no.obrien.fakebank.model.AccountBalance;
+import no.obrien.fakebank.model.AccountDetails;
+import no.obrien.fakebank.provider.AccountProvider;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+/***
+ * Handles HTTP requests, can be useful for validating requests and performing
+ * common actions such as reading data from headers or adding a request id
+ */
+@RestController
+<span class="fc" id="L20">@RequiredArgsConstructor</span>
+<span class="fc" id="L21">@Slf4j</span>
+public class AccountController implements AccountsApi {
+
+  private final AccountProvider accountProvider;
+  private final AccountMapper accountMapper;
+
+  /***
+   * Returns the balance of an account given by its id
+   * @param accountId  (required)
+   * @return the specified account balance
+   */
+<span class="fc" id="L32">  @SneakyThrows</span>
+  @Override
+  public ResponseEntity&lt;AccountBalance&gt; getAccountBalance(Long accountId) {
+<span class="fc" id="L35">    log.info(&quot;Received getAccountBalance request for account {}&quot;, accountId);</span>
+<span class="fc" id="L36">    Account account = accountProvider.getAccount(accountId);</span>
+<span class="fc" id="L37">    return ResponseEntity.ok(accountMapper.toAccountBalance(account));</span>
+  }
+
+  /***
+   * Returns the details of an account given by its id
+   * @param accountId  (required)
+   * @return the specified account details
+   */
+<span class="fc" id="L45">  @SneakyThrows</span>
+  @Override
+  public ResponseEntity&lt;AccountDetails&gt; getAccountDetails(Long accountId) {
+<span class="fc" id="L48">    log.info(&quot;Received getAccountDetails request for account {}&quot;, accountId);</span>
+<span class="fc" id="L49">    Account account = accountProvider.getAccount(accountId);</span>
+<span class="fc" id="L50">    return ResponseEntity.ok(accountMapper.toAccountDetails(account));</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
