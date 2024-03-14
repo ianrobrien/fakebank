@@ -29,13 +29,13 @@ jobs:
           # Full git history is needed to get a proper list of changed files
           # within `super-linter`
           fetch-depth: 0
-      - uses: github/super-linter/slim@v5
+      - uses: super-linter/super-linter/slim@v6
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IGNORE_GENERATED_FILES: true
           SUPPRESS_POSSUM: true
-          VALIDATE_CHECCOV: false
+          VALIDATE_CHECKOV: false
           VALIDATE_EDITORCONFIG: false
           VALIDATE_GITHUB_ACTIONS: false
           VALIDATE_GOOGLE_JAVA_FORMAT: false
