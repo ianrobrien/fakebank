@@ -117,6 +117,12 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>2.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
       <version>10.1.24</version>
@@ -274,6 +280,11 @@
               <version>0.2.0</version>
             </path>
           </annotationProcessorPaths>
+          <!--          <compilerArgs>-->
+          <!--            <arg>-->
+          <!--              -Amapstruct.defaultComponentModel=jakarta-cdi-->
+          <!--            </arg>-->
+          <!--          </compilerArgs>-->
         </configuration>
       </plugin>
       <plugin>
