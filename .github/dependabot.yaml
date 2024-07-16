@@ -5,6 +5,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      all:
+        patterns:
+          - "*"      
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
@@ -20,7 +24,15 @@ updates:
     directory: "/docker-compose"
     schedule:
       interval: "daily"
+    groups:
+      all:
+        patterns:
+          - "*"      
   - package-ecosystem: "terraform"
     directory: "/infrastructure/terraform"
     schedule:
       interval: "daily"
+    groups:
+      all:
+        patterns:
+          - "*"      
