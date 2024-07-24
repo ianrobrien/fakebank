@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.9-eclipse-temurin-8-alpine@sha256:6c21fea72d9aab08e6ad06d1efe9ef4f7487ac7efb71f6621ff5804462406d7a AS build
+FROM maven:3.9-eclipse-temurin-8-alpine@sha256:ce84f353027ef197fb1c85a4bfae6e4e03870ae2139a189b5f65c07ac01a033a AS build
 COPY . /home/app/
 RUN mvn -f /home/app/pom.xml clean install -DskipTests
 
