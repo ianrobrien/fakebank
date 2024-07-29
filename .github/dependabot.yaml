@@ -17,9 +17,13 @@ updates:
       patch-updates:
         update-types:
           - "patch"
+        exclude-patterns:
+          - "jakarta.*"
       minor-updates:
         update-types:
-          - "minor"      
+          - "minor"
+        exclude-patterns:
+          - "jakarta.*"
   - package-ecosystem: "docker"
     directory: "/docker-compose"
     schedule:
@@ -27,7 +31,7 @@ updates:
     groups:
       all:
         patterns:
-          - "*"      
+          - "*"
   - package-ecosystem: "terraform"
     directory: "/infrastructure/terraform"
     schedule:
@@ -35,4 +39,4 @@ updates:
     groups:
       all:
         patterns:
-          - "*"      
+          - "*"
