@@ -11,14 +11,12 @@ import no.obrien.fakebank.model.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * Tests the account mapper
  */
-@SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
 class AccountMapperTest {
 
   private final AccountMapper accountMapper = Mappers.getMapper(AccountMapper.class);

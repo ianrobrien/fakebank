@@ -13,14 +13,15 @@ import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.User;
 import no.obrien.fakebank.provider.AccountProvider;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the account controller
  */
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 class AccountControllerTest {
 
   @Autowired

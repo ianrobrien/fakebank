@@ -6,12 +6,13 @@ import static org.mockito.Mockito.when;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the request interceptor
  */
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class RequestInterceptorTest {
 
   /***

@@ -11,12 +11,13 @@ import no.obrien.fakebank.model.InstructedAmount;
 import no.obrien.fakebank.provider.AccountProvider;
 import no.obrien.fakebank.provider.PaymentProvider;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the insufficient funds exception
  */
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class InsufficientFundsExceptionTest {
 
   /***

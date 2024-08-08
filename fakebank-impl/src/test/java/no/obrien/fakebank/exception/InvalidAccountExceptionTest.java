@@ -4,12 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import no.obrien.fakebank.repository.AccountRepositoryMock;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the invalid account exception
  */
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class InvalidAccountExceptionTest {
 
   /***

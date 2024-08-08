@@ -19,13 +19,14 @@ import no.obrien.fakebank.provider.AccountProvider;
 import no.obrien.fakebank.provider.PaymentProvider;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the payment controller
  */
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 class PaymentControllerTest {
 
   /***
