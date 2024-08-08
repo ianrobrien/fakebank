@@ -62,6 +62,7 @@ jobs:
           VALIDATE_GOOGLE_JAVA_FORMAT: false
           VALIDATE_HTML: false
           VALIDATE_JAVA: false
+          VALIDATE_JAVASCRIPT_PRETTIER: false
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_JSCPD: false
           VALIDATE_NATURAL_LANGUAGE: false
