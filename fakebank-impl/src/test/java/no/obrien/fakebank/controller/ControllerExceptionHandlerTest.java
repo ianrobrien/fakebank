@@ -7,12 +7,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
  * Tests the controller exception handler
  */
 @ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {ControllerExceptionHandler.class})
 public class ControllerExceptionHandlerTest {
 
   @Autowired
