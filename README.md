@@ -6,7 +6,7 @@
 [![Coverage](.github/badges/jacoco.svg)](https://www.ianrobrien.dev/fakebank/coverage)
 [![Coverage](.github/badges/branches.svg)](https://www.ianrobrien.dev/fakebank/coverage)
 
-[![API Summary](https://img.shields.io/badge/API_Summary-4c8eca)](https://ianrobrien.dev/fakebank/api)
+[![fakebank-api](https://img.shields.io/badge/API_Summary-4c8eca)](https://ianrobrien.dev/fakebank/api)
 
 ## Running the application
 
