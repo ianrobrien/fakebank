@@ -1,9 +1,11 @@
 # fakebank
 
 [![Continuous Integration](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/ianrobrien/fakebank/actions/workflows/ci.yaml)
+[![CodeQL](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml/badge.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml)
+
 [![Coverage](.github/badges/jacoco.svg)](https://www.ianrobrien.dev/fakebank/coverage)
 [![Coverage](.github/badges/branches.svg)](https://www.ianrobrien.dev/fakebank/coverage)
-[![CodeQL](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml/badge.svg)](https://github.com/ianrobrien/fakebank/actions/workflows/codeql.yml)
+
 [![API Summary](https://img.shields.io/badge/API_Summary-4c8eca)](https://ianrobrien.dev/fakebank/api)
 
 ## Running the application
