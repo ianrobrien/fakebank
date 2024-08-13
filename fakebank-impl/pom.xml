@@ -305,7 +305,6 @@
               <generatorName>spring</generatorName>
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
-                <interfaceOnly>true</interfaceOnly>
                 <useJakartaEe>true</useJakartaEe>
               </configOptions>
             </configuration>
