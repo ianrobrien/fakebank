@@ -8,21 +8,21 @@ env:
   IMAGE_NAME: fakebank
 
 jobs:
-  changes:
-    name: "Checking folders for changes"
-    runs-on: ubuntu-latest
-    outputs:
-      app: ${{ steps.changes.outputs.app }}
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3.0.2
-        id: changes
-        with:
-          filters: |
-            app:
-              - 'fakebank-impl/**'
-              - 'fakebake-api/**'
+  #  changes:
+  #    name: "Checking folders for changes"
+  #    runs-on: ubuntu-latest
+  #    outputs:
+  #      app: ${{ steps.changes.outputs.app }}
+  #    steps:
+  #      - name: "Checkout"
+  #        uses: actions/checkout@v4
+  #      - uses: dorny/paths-filter@v3.0.2
+  #        id: changes
+  #        with:
+  #          filters: |
+  #            app:
+  #              - 'fakebank-impl/**'
+  #              - 'fakebake-api/**'
   vale:
     name: Vale
     runs-on: ubuntu-latest
@@ -65,8 +65,8 @@ jobs:
           VALIDATE_TERRAFORM_TERRASCAN: false
           VALIDATE_TERRAFORM_TFLINT: false
   build:
-    needs: [vale, lint, changes]
-    if: ${{ needs.changes.outputs.app == 'true' }}
+    needs: [vale, lint]
+    #    if: ${{ needs.changes.outputs.app == 'true' }}
     name: Build
     runs-on: ubuntu-latest
     permissions:
@@ -96,7 +96,7 @@ jobs:
           path: 'www/coverage'
   build-image:
     needs: [vale, build]
-    if: ${{ needs.changes.outputs.app == 'true' }}
+    #    if: ${{ needs.changes.outputs.app == 'true' }}
     name: Build Image
     runs-on: ubuntu-latest
     permissions:
