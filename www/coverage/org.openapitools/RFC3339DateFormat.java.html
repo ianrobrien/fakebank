@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RFC3339DateFormat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fakebank</a> &gt; <a href="index.source.html" class="el_package">org.openapitools</a> &gt; <span class="el_source">RFC3339DateFormat.java</span></div><h1>RFC3339DateFormat.java</h1><pre class="source lang-java linenums">package org.openapitools;
+
+import com.fasterxml.jackson.databind.util.StdDateFormat;
+
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+public class RFC3339DateFormat extends DateFormat {
+  private static final long serialVersionUID = 1L;
+<span class="nc" id="L14">  private static final TimeZone TIMEZONE_Z = TimeZone.getTimeZone(&quot;UTC&quot;);</span>
+
+<span class="nc" id="L16">  private final StdDateFormat fmt = new StdDateFormat()</span>
+<span class="nc" id="L17">          .withTimeZone(TIMEZONE_Z)</span>
+<span class="nc" id="L18">          .withColonInTimeZone(true);</span>
+
+<span class="nc" id="L20">  public RFC3339DateFormat() {</span>
+<span class="nc" id="L21">    this.calendar = new GregorianCalendar();</span>
+<span class="nc" id="L22">  }</span>
+
+  @Override
+  public Date parse(String source, ParsePosition pos) {
+<span class="nc" id="L26">    return fmt.parse(source, pos);</span>
+  }
+
+  @Override
+  public StringBuffer format(Date date, StringBuffer toAppendTo, FieldPosition fieldPosition) {
+<span class="nc" id="L31">    return fmt.format(date, toAppendTo, fieldPosition);</span>
+  }
+
+  @Override
+  public Object clone() {
+<span class="nc" id="L36">    return this;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
