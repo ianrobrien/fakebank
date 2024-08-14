@@ -248,6 +248,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
+          <mainClass>no.obrien.fakebank.Main</mainClass>
           <excludes>
             <exclude>
               <groupId>org.projectlombok</groupId>
@@ -306,7 +307,6 @@
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
                 <useJakartaEe>true</useJakartaEe>
-                <interfaceOnly>true</interfaceOnly>
               </configOptions>
             </configuration>
           </execution>
