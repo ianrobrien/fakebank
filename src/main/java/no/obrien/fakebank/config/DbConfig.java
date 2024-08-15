@@ -28,7 +28,7 @@ public class DbConfig {
    * @return the data source
    */
   @Bean
-  @Profile({"local"})
+  @Profile({"local", "dev"})
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource(
         url,

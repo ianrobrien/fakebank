@@ -7,7 +7,7 @@ import static org.mockito.Mockito.when;
 import java.util.Optional;
 import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.model.Account;
-import no.obrien.fakebank.model.User;
+import no.obrien.fakebank.model.Owner;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +26,7 @@ public class AccountProviderMockTest {
     var balance = 0.0;
     var currency = "NOK";
 
-    var owner = mock(User.class);
+    var owner = mock(Owner.class);
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
 
