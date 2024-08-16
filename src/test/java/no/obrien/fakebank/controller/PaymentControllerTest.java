@@ -14,7 +14,7 @@ import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
 import no.obrien.fakebank.model.PaymentRequest;
-import no.obrien.fakebank.model.User;
+import no.obrien.fakebank.model.Owner;
 import no.obrien.fakebank.provider.AccountProvider;
 import no.obrien.fakebank.provider.PaymentProvider;
 import no.obrien.fakebank.repository.AccountRepository;
@@ -84,7 +84,7 @@ class PaymentControllerTest {
     var accountProvider = mock(AccountProvider.class);
     var paymentProvider = new PaymentProvider(accountProvider);
 
-    var owner = mock(User.class);
+    var owner = mock(Owner.class);
 
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
@@ -113,7 +113,7 @@ class PaymentControllerTest {
     var accountProvider = mock(AccountProvider.class);
     var paymentProvider = mock(PaymentProvider.class);
 
-    var owner = mock(User.class);
+    var owner = mock(Owner.class);
 
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");

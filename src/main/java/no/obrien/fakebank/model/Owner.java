@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /***
- * Represent a User entity
+ * Represent an Owner entity
  */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Builder
 @Entity
-public class User {
+public class Owner {
 
   /***
    * The account ID (e.g. 1111)

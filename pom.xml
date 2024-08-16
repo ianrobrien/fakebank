@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -159,6 +159,12 @@
       <artifactId>spring-jdbc</artifactId>
       <version>6.1.12</version>
       <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -170,18 +176,6 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-netflix-zuul</artifactId>
       <version>2.2.10.RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-      <version>3.2.0</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.annotation</groupId>
-      <artifactId>jakarta.annotation-api</artifactId>
-      <version>3.0.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -199,6 +193,21 @@
 
     <!-- Database -->
     <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
@@ -211,6 +220,12 @@
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
       <version>9.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.2.224</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -229,13 +244,6 @@
       <artifactId>slf4j-api</artifactId>
       <version>2.0.16</version>
     </dependency>
-    <dependency>
-      <groupId>jakarta.platform</groupId>
-      <artifactId>jakarta.jakartaee-api</artifactId>
-      <version>10.0.0</version> <!-- or the version you are targeting -->
-      <scope>provided</scope>
-    </dependency>
-
 
     <!--Server API-->
     <dependency>
@@ -310,7 +318,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>no.obrien.fakebank.Main</mainClass>
           <excludes>
             <exclude>
               <groupId>org.projectlombok</groupId>
@@ -343,11 +350,6 @@
               <version>0.2.0</version>
             </path>
           </annotationProcessorPaths>
-          <!--          <compilerArgs>-->
-          <!--            <arg>-->
-          <!--              -Amapstruct.defaultComponentModel=jakarta-cdi-->
-          <!--            </arg>-->
-          <!--          </compilerArgs>-->
         </configuration>
       </plugin>
       <plugin>
@@ -368,7 +370,7 @@
               <generatorName>spring</generatorName>
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
-                <useJakartaEe>true</useJakartaEe>
+                <interfaceOnly>true</interfaceOnly>
               </configOptions>
             </configuration>
           </execution>

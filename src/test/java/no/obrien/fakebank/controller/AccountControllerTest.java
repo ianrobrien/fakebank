@@ -14,7 +14,7 @@ import no.obrien.fakebank.mapper.AccountMapper;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.AccountBalance;
 import no.obrien.fakebank.model.AccountDetails;
-import no.obrien.fakebank.model.User;
+import no.obrien.fakebank.model.Owner;
 import no.obrien.fakebank.provider.AccountProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,7 +39,7 @@ class AccountControllerTest {
   @Test
   void getBalance_validAccount_returnsValidData() {
     var accountProvider = mock(AccountProvider.class);
-    var owner = mock(User.class);
+    var owner = mock(Owner.class);
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
 
@@ -80,7 +80,7 @@ class AccountControllerTest {
   @Test
   void getAccountDetails_validAccount_returnsValidData() {
     var accountProvider = mock(AccountProvider.class);
-    var owner = mock(User.class);
+    var owner = mock(Owner.class);
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
 

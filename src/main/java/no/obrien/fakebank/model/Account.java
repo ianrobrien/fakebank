@@ -29,7 +29,7 @@ public class Account {
   private Long id;
 
   @ManyToOne
-  private User owner;
+  private Owner owner;
 
   /***
    * The account balance (e.g. 256.16)

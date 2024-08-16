@@ -7,7 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
-import no.obrien.fakebank.model.User;
+import no.obrien.fakebank.model.Owner;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
@@ -43,7 +43,7 @@ class AccountMapperTest {
     var currency = "NOK";
     var id = 12345L;
 
-    var owner = User.builder()
+    var owner = Owner.builder()
         .firstName("first")
         .lastName("last")
         .build();
@@ -104,10 +104,10 @@ class AccountMapperTest {
     var balance = 100.00;
     var currency = "NOK";
     var id = 12345L;
-    var userId = 1L;
+    var ownerId = 1L;
 
-    var owner = mock(User.class);
-    when(owner.getId()).thenReturn(userId);
+    var owner = mock(Owner.class);
+    when(owner.getId()).thenReturn(ownerId);
 
     var account = Account.builder().balance(balance).currency(currency).id(id).owner(owner).build();
 
@@ -116,6 +116,6 @@ class AccountMapperTest {
     assertEquals(balance, Double.parseDouble(accountDetails.getBalance()));
     assertEquals(currency, accountDetails.getCurrency());
     assertEquals(id, accountDetails.getAccountId());
-    assertEquals(userId, accountDetails.getOwnerId());
+    assertEquals(ownerId, accountDetails.getOwnerId());
   }
 }
