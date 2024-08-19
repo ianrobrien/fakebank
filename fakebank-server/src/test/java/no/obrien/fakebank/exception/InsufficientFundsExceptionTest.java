@@ -8,8 +8,8 @@ import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import no.obrien.fakebank.provider.AccountProvider;
-import no.obrien.fakebank.provider.PaymentProvider;
+import no.obrien.fakebank.service.AccountService;
+import no.obrien.fakebank.service.PaymentService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -26,21 +26,21 @@ public class InsufficientFundsExceptionTest {
    */
   @Test
   void initiatePayment_insufficientFunds_throwsException() {
-    var accountProvider = mock(AccountProvider.class);
+    var accountService = mock(AccountService.class);
 
     try {
-      when(accountProvider.getAccount(anyLong())).thenReturn(Account.builder().build());
+      when(accountService.getAccount(anyLong())).thenReturn(Account.builder().build());
     } catch (InvalidAccountException e) {
       throw new RuntimeException(e);
     }
 
-    var paymentProvider = new PaymentProvider(accountProvider);
+    var paymentService = new PaymentService(accountService);
 
     var exception =
         assertThrows(
             InsufficientFundsException.class,
             () ->
-                paymentProvider.initiatePayment(
+                paymentService.initiatePayment(
                     1L, 2L, new InstructedAmount().amount("100")));
 
     assertEquals("Insufficient funds", exception.getMessage());

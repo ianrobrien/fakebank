@@ -1,4 +1,4 @@
-package no.obrien.fakebank.provider;
+package no.obrien.fakebank.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -10,20 +10,20 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-class AccountProviderTest {
+class AccountServiceTest {
 
   @Test
   void getAccount() {
-    var accountProvider = new AccountProvider(new AccountRepositoryMock());
+    var accountService = new AccountService(new AccountRepositoryMock());
     assertEquals(
         "Ian Robert",
-        accountProvider.getAccount(1L).getOwner().getFirstName());
+        accountService.getAccount(1L).getOwner().getFirstName());
   }
 
   @Test
   void saveAccount() {
-    var accountProvider = new AccountProvider(new AccountRepositoryMock());
+    var accountService = new AccountService(new AccountRepositoryMock());
     assertThrows(UnsupportedOperationException.class,
-        () -> accountProvider.saveAccount(new Account()));
+        () -> accountService.saveAccount(new Account()));
   }
 }

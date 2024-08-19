@@ -1,4 +1,4 @@
-package no.obrien.fakebank.provider;
+package no.obrien.fakebank.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 /***
  * Tests the account provider
  */
-public class AccountProviderMockTest {
+public class AccountServiceMockTest {
 
   /***
    * Verifies that a valid account request returns the valid account
@@ -39,9 +39,9 @@ public class AccountProviderMockTest {
                 .currency(currency)
                 .owner(owner).build()));
 
-    var accountProvider = new AccountProvider(accountRepository);
+    var accountService = new AccountService(accountRepository);
 
-    var account = accountProvider.getAccount(id);
+    var account = accountService.getAccount(id);
     assertEquals(id, account.getId());
     assertEquals(balance, account.getBalance());
     assertEquals(currency, account.getCurrency());

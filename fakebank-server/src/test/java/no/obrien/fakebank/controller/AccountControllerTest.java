@@ -15,7 +15,7 @@ import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.AccountBalance;
 import no.obrien.fakebank.model.AccountDetails;
 import no.obrien.fakebank.model.Owner;
-import no.obrien.fakebank.provider.AccountProvider;
+import no.obrien.fakebank.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -38,18 +38,18 @@ class AccountControllerTest {
    */
   @Test
   void getBalance_validAccount_returnsValidData() {
-    var accountProvider = mock(AccountProvider.class);
+    var accountService = mock(AccountService.class);
     var owner = mock(Owner.class);
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
 
-    when(accountProvider.getAccount(anyLong()))
+    when(accountService.getAccount(anyLong()))
         .thenReturn(
             Account.builder().id(4444L).balance(0.0).currency("NOK").owner(owner).build());
 
     given(accountMapper.toAccountBalance(any(Account.class)))
         .willReturn(new AccountBalance().accountId(4444L));
-    var accountController = new AccountController(accountProvider, accountMapper);
+    var accountController = new AccountController(accountService, accountMapper);
 
     var accountBalance = accountController.getAccountBalance(4444L);
 
@@ -64,11 +64,11 @@ class AccountControllerTest {
    */
   @Test
   void getBalance_invalidAccount_throwsException() throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
+    var accountService = mock(AccountService.class);
 
-    when(accountProvider.getAccount(anyLong())).thenThrow(new InvalidAccountException());
+    when(accountService.getAccount(anyLong())).thenThrow(new InvalidAccountException());
 
-    var accountController = new AccountController(accountProvider, accountMapper);
+    var accountController = new AccountController(accountService, accountMapper);
 
     assertThrows(InvalidAccountException.class, () -> accountController.getAccountBalance(-1L));
   }
@@ -79,18 +79,18 @@ class AccountControllerTest {
    */
   @Test
   void getAccountDetails_validAccount_returnsValidData() {
-    var accountProvider = mock(AccountProvider.class);
+    var accountService = mock(AccountService.class);
     var owner = mock(Owner.class);
     when(owner.getFirstName()).thenReturn("Ian Robert");
     when(owner.getLastName()).thenReturn("O'Brien");
 
-    when(accountProvider.getAccount(anyLong()))
+    when(accountService.getAccount(anyLong()))
         .thenReturn(
             Account.builder().id(4444L).balance(0.0).currency("NOK").owner(owner).build());
 
     given(accountMapper.toAccountDetails(any(Account.class)))
         .willReturn(new AccountDetails().accountId(4444L));
-    var accountController = new AccountController(accountProvider, accountMapper);
+    var accountController = new AccountController(accountService, accountMapper);
 
     var accountDetails = accountController.getAccountDetails(4444L);
 
@@ -105,11 +105,11 @@ class AccountControllerTest {
    */
   @Test
   void getAccountDetails_invalidAccount_throwsException() throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
+    var accountService = mock(AccountService.class);
 
-    when(accountProvider.getAccount(anyLong())).thenThrow(new InvalidAccountException());
+    when(accountService.getAccount(anyLong())).thenThrow(new InvalidAccountException());
 
-    var accountController = new AccountController(accountProvider, accountMapper);
+    var accountController = new AccountController(accountService, accountMapper);
 
     assertThrows(InvalidAccountException.class, () -> accountController.getAccountDetails(-1L));
   }
