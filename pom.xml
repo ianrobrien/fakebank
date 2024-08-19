@@ -18,6 +18,7 @@
 
   <modules>
     <module>server</module>
+    <module>client</module>
   </modules>
 
   <properties>
@@ -31,13 +32,13 @@
     <openapi-generator-maven-plugin.version>7.7.0</openapi-generator-maven-plugin.version>
   </properties>
 
-<!--  <distributionManagement>-->
-<!--    <repository>-->
-<!--      <id>github</id>-->
-<!--      <name>GitHub Packages</name>-->
-<!--      <url>https://maven.pkg.github.com/ianrobrien/fakebank</url>-->
-<!--    </repository>-->
-<!--  </distributionManagement>-->
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/ianrobrien/fakebank</url>
+    </repository>
+  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
