@@ -29,7 +29,7 @@
     <mapstruct.version>1.6.0</mapstruct.version>
     <mockito-core.version>5.12.0</mockito-core.version>
     <lombok.version>1.18.34</lombok.version>
-    <openapi-generator-maven-plugin.version>7.7.0</openapi-generator-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>7.8.0</openapi-generator-maven-plugin.version>
   </properties>
 
   <distributionManagement>
@@ -50,7 +50,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>33.2.1-jre</version>
+        <version>33.3.0-jre</version>
       </dependency>
       <dependency>
         <groupId>org.codehaus.plexus</groupId>
