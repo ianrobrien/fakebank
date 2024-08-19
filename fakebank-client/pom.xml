@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>client</artifactId>
+  <artifactId>fakebank-client</artifactId>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
@@ -18,7 +18,7 @@
     <java.version>21</java.version>
     <okhttp.version>4.12.0</okhttp.version>
   </properties>
-  
+
   <dependencies>
     <dependency>
       <groupId>com.squareup.okio</groupId>
