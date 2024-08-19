@@ -17,8 +17,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>server</module>
-    <module>client</module>
+    <module>fakebank-server</module>
+    <module>fakebank-client</module>
   </modules>
 
   <properties>
