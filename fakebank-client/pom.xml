@@ -78,6 +78,7 @@
               <generatorName>java</generatorName>
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
+                <apiNameSuffix>Fakebank</apiNameSuffix>
               </configOptions>
             </configuration>
           </execution>

@@ -12,6 +12,8 @@ paths:
   /accounts/{accountId}/balance:
     get:
       summary: 'Get the balance for the specified account'
+      tags:
+        - accounts
       operationId: getAccountBalance
       parameters:
         - name: accountId
@@ -36,6 +38,8 @@ paths:
   /accounts/{accountId}/details:
     get:
       summary: 'Get the details for the specified account'
+      tags:
+        - accounts
       operationId: getAccountDetails
       parameters:
         - name: accountId
@@ -62,6 +66,8 @@ paths:
       summary: >
         Transfer the specified amount from the debtor account to the creditor
         account
+      tags:
+        - payments
       operationId: initiatePayment
       requestBody:
         description: Optional description in *Markdown*
@@ -74,7 +80,7 @@ paths:
         '200':
           description: successful operation
           content:
-            application/json: { }
+            application/json: {}
         '400':
           description: invalid request
           content:

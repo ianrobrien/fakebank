@@ -774,15 +774,16 @@
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
-                  <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="getAccountBalance" class="">
-                      <a href="#api-Default-getAccountBalance">getAccountBalance</a>
+                  <li class="nav-header" data-group="Accounts"><a href="#api-Accounts">API Methods - Accounts</a></li>
+                    <li data-group="Accounts" data-name="getAccountBalance" class="">
+                      <a href="#api-Accounts-getAccountBalance">getAccountBalance</a>
                     </li>
-                    <li data-group="Default" data-name="getAccountDetails" class="">
-                      <a href="#api-Default-getAccountDetails">getAccountDetails</a>
+                    <li data-group="Accounts" data-name="getAccountDetails" class="">
+                      <a href="#api-Accounts-getAccountDetails">getAccountDetails</a>
                     </li>
-                    <li data-group="Default" data-name="initiatePayment" class="">
-                      <a href="#api-Default-initiatePayment">initiatePayment</a>
+                  <li class="nav-header" data-group="Payments"><a href="#api-Payments">API Methods - Payments</a></li>
+                    <li data-group="Payments" data-name="initiatePayment" class="">
+                      <a href="#api-Payments-initiatePayment">initiatePayment</a>
                     </li>
           </ul>
         </nav>
@@ -803,10 +804,10 @@
           </div>
         </div>
         <div id="sections">
-                <section id="api-Default">
-                  <h1>Default</h1>
-                    <div id="api-Default-getAccountBalance">
-                      <article id="api-Default-getAccountBalance-0" data-group="User" data-name="getAccountBalance" data-version="0">
+                <section id="api-Accounts">
+                  <h1>Accounts</h1>
+                    <div id="api-Accounts-getAccountBalance">
+                      <article id="api-Accounts-getAccountBalance-0" data-group="User" data-name="getAccountBalance" data-version="0">
                         <div class="pull-left">
                           <h1>getAccountBalance</h1>
                           <p>Get the balance for the specified account</p>
@@ -822,77 +823,77 @@
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-getAccountBalance-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-getAccountBalance-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-getAccountBalance-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-getAccountBalance-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Accounts-getAccountBalance-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Accounts-getAccountBalance-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Accounts-getAccountBalance-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountBalance-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-getAccountBalance-0-curl">
+                          <div class="tab-pane active" id="examples-Accounts-getAccountBalance-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
 "http://localhost:8080//accounts/{accountId}/balance"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-getAccountBalance-0-java">
+                          <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.AccountsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class AccountsApiExample {
 
     public static void main(String[] args) {
         
-        DefaultApi apiInstance = new DefaultApi();
+        AccountsApi apiInstance = new AccountsApi();
         Long accountId = 789; // Long | 
         try {
             AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getAccountBalance");
+            System.err.println("Exception when calling AccountsApi#getAccountBalance");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-getAccountBalance-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AccountsApi;
 
-public class DefaultApiExample {
+public class AccountsApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        AccountsApi apiInstance = new AccountsApi();
         Long accountId = 789; // Long | 
         try {
             AccountBalance result = apiInstance.getAccountBalance(accountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getAccountBalance");
+            System.err.println("Exception when calling AccountsApi#getAccountBalance");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-getAccountBalance-0-groovy">
+  <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-objc">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Long *accountId = 789; // 
 
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+AccountsApi *apiInstance = [[AccountsApi alloc] init];
 
 // Get the balance for the specified account
 [apiInstance getAccountBalanceWith:accountId
@@ -907,10 +908,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-javascript">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FakebankApi = require('fakebank_api');
 
-var api = new FakebankApi.DefaultApi()
+var api = new FakebankApi.AccountsApi()
 var accountId = 789; // {{Long}} 
 
 var callback = function(error, data, response) {
@@ -924,10 +925,10 @@ api.getAccountBalance(accountId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-getAccountBalance-0-angular">
+                            <!--<div class="tab-pane" id="examples-Accounts-getAccountBalance-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-csharp">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -941,7 +942,7 @@ namespace Example
         public void main()
         {
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new AccountsApi();
             var accountId = 789;  // Long | 
 
             try
@@ -952,7 +953,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.getAccountBalance: " + e.Message );
+                Debug.Print("Exception when calling AccountsApi.getAccountBalance: " + e.Message );
             }
         }
     }
@@ -960,28 +961,28 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-php">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiAccountsApi();
 $accountId = 789; // Long | 
 
 try {
     $result = $api_instance->getAccountBalance($accountId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getAccountBalance: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->getAccountBalance: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-perl">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::AccountsApi;
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::AccountsApi->new();
 my $accountId = 789; # Long | 
 
 eval { 
@@ -989,11 +990,11 @@ eval {
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->getAccountBalance: $@\n";
+    warn "Exception when calling AccountsApi->getAccountBalance: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountBalance-0-python">
+                            <div class="tab-pane" id="examples-Accounts-getAccountBalance-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1001,7 +1002,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.AccountsApi()
 accountId = 789 # Long | 
 
 try: 
@@ -1009,7 +1010,7 @@ try:
     api_response = api_instance.get_account_balance(accountId)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->getAccountBalance: %s\n" % e)</code></pre>
+    print("Exception when calling AccountsApi->getAccountBalance: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1149,8 +1150,8 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-getAccountDetails">
-                      <article id="api-Default-getAccountDetails-0" data-group="User" data-name="getAccountDetails" data-version="0">
+                    <div id="api-Accounts-getAccountDetails">
+                      <article id="api-Accounts-getAccountDetails-0" data-group="User" data-name="getAccountDetails" data-version="0">
                         <div class="pull-left">
                           <h1>getAccountDetails</h1>
                           <p>Get the details for the specified account</p>
@@ -1166,77 +1167,77 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-getAccountDetails-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-getAccountDetails-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-getAccountDetails-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-getAccountDetails-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Accounts-getAccountDetails-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Accounts-getAccountDetails-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Accounts-getAccountDetails-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Accounts-getAccountDetails-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-getAccountDetails-0-curl">
+                          <div class="tab-pane active" id="examples-Accounts-getAccountDetails-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
 -H "Accept: application/json"\
 "http://localhost:8080//accounts/{accountId}/details"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-getAccountDetails-0-java">
+                          <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.AccountsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class AccountsApiExample {
 
     public static void main(String[] args) {
         
-        DefaultApi apiInstance = new DefaultApi();
+        AccountsApi apiInstance = new AccountsApi();
         Long accountId = 789; // Long | 
         try {
             AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getAccountDetails");
+            System.err.println("Exception when calling AccountsApi#getAccountDetails");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-getAccountDetails-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AccountsApi;
 
-public class DefaultApiExample {
+public class AccountsApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        AccountsApi apiInstance = new AccountsApi();
         Long accountId = 789; // Long | 
         try {
             AccountDetails result = apiInstance.getAccountDetails(accountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getAccountDetails");
+            System.err.println("Exception when calling AccountsApi#getAccountDetails");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-getAccountDetails-0-groovy">
+  <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-objc">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Long *accountId = 789; // 
 
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+AccountsApi *apiInstance = [[AccountsApi alloc] init];
 
 // Get the details for the specified account
 [apiInstance getAccountDetailsWith:accountId
@@ -1251,10 +1252,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-javascript">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FakebankApi = require('fakebank_api');
 
-var api = new FakebankApi.DefaultApi()
+var api = new FakebankApi.AccountsApi()
 var accountId = 789; // {{Long}} 
 
 var callback = function(error, data, response) {
@@ -1268,10 +1269,10 @@ api.getAccountDetails(accountId, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-getAccountDetails-0-angular">
+                            <!--<div class="tab-pane" id="examples-Accounts-getAccountDetails-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-csharp">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1285,7 +1286,7 @@ namespace Example
         public void main()
         {
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new AccountsApi();
             var accountId = 789;  // Long | 
 
             try
@@ -1296,7 +1297,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.getAccountDetails: " + e.Message );
+                Debug.Print("Exception when calling AccountsApi.getAccountDetails: " + e.Message );
             }
         }
     }
@@ -1304,28 +1305,28 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-php">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiAccountsApi();
 $accountId = 789; // Long | 
 
 try {
     $result = $api_instance->getAccountDetails($accountId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getAccountDetails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->getAccountDetails: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-perl">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::AccountsApi;
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::AccountsApi->new();
 my $accountId = 789; # Long | 
 
 eval { 
@@ -1333,11 +1334,11 @@ eval {
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->getAccountDetails: $@\n";
+    warn "Exception when calling AccountsApi->getAccountDetails: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-getAccountDetails-0-python">
+                            <div class="tab-pane" id="examples-Accounts-getAccountDetails-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1345,7 +1346,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.AccountsApi()
 accountId = 789 # Long | 
 
 try: 
@@ -1353,7 +1354,7 @@ try:
     api_response = api_instance.get_account_details(accountId)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->getAccountDetails: %s\n" % e)</code></pre>
+    print("Exception when calling AccountsApi->getAccountDetails: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1493,8 +1494,11 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-initiatePayment">
-                      <article id="api-Default-initiatePayment-0" data-group="User" data-name="initiatePayment" data-version="0">
+                  </section>
+                <section id="api-Payments">
+                  <h1>Payments</h1>
+                    <div id="api-Payments-initiatePayment">
+                      <article id="api-Payments-initiatePayment-0" data-group="User" data-name="initiatePayment" data-version="0">
                         <div class="pull-left">
                           <h1>initiatePayment</h1>
                           <p>Transfer the specified amount from the debtor account to the creditor account
@@ -1511,76 +1515,76 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-initiatePayment-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-initiatePayment-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-initiatePayment-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-initiatePayment-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-initiatePayment-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-initiatePayment-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Payments-initiatePayment-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Payments-initiatePayment-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Payments-initiatePayment-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Payments-initiatePayment-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-initiatePayment-0-curl">
+                          <div class="tab-pane active" id="examples-Payments-initiatePayment-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
 -H "Content-Type: application/json"\
 "http://localhost:8080//payments"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-initiatePayment-0-java">
+                          <div class="tab-pane" id="examples-Payments-initiatePayment-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.PaymentsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DefaultApiExample {
+public class PaymentsApiExample {
 
     public static void main(String[] args) {
         
-        DefaultApi apiInstance = new DefaultApi();
+        PaymentsApi apiInstance = new PaymentsApi();
         PaymentRequest body = ; // PaymentRequest | Optional description in *Markdown*
         try {
             apiInstance.initiatePayment(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#initiatePayment");
+            System.err.println("Exception when calling PaymentsApi#initiatePayment");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-initiatePayment-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+                          <div class="tab-pane" id="examples-Payments-initiatePayment-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PaymentsApi;
 
-public class DefaultApiExample {
+public class PaymentsApiExample {
 
     public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
+        PaymentsApi apiInstance = new PaymentsApi();
         PaymentRequest body = ; // PaymentRequest | Optional description in *Markdown*
         try {
             apiInstance.initiatePayment(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#initiatePayment");
+            System.err.println("Exception when calling PaymentsApi#initiatePayment");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-initiatePayment-0-groovy">
+  <div class="tab-pane" id="examples-Payments-initiatePayment-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-objc">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">PaymentRequest *body = ; // Optional description in *Markdown*
 
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
+PaymentsApi *apiInstance = [[PaymentsApi alloc] init];
 
 // Transfer the specified amount from the debtor account to the creditor account
 
@@ -1593,10 +1597,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-javascript">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var FakebankApi = require('fakebank_api');
 
-var api = new FakebankApi.DefaultApi()
+var api = new FakebankApi.PaymentsApi()
 var body = ; // {{PaymentRequest}} Optional description in *Markdown*
 
 var callback = function(error, data, response) {
@@ -1610,10 +1614,10 @@ api.initiatePayment(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-initiatePayment-0-angular">
+                            <!--<div class="tab-pane" id="examples-Payments-initiatePayment-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-csharp">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1627,7 +1631,7 @@ namespace Example
         public void main()
         {
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new PaymentsApi();
             var body = new PaymentRequest(); // PaymentRequest | Optional description in *Markdown*
 
             try
@@ -1638,7 +1642,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.initiatePayment: " + e.Message );
+                Debug.Print("Exception when calling PaymentsApi.initiatePayment: " + e.Message );
             }
         }
     }
@@ -1646,38 +1650,38 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-php">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\ApiDefaultApi();
+$api_instance = new Swagger\Client\ApiPaymentsApi();
 $body = ; // PaymentRequest | Optional description in *Markdown*
 
 try {
     $api_instance->initiatePayment($body);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->initiatePayment: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->initiatePayment: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-perl">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
+use WWW::SwaggerClient::PaymentsApi;
 
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $api_instance = WWW::SwaggerClient::PaymentsApi->new();
 my $body = WWW::SwaggerClient::Object::PaymentRequest->new(); # PaymentRequest | Optional description in *Markdown*
 
 eval { 
     $api_instance->initiatePayment(body => $body);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->initiatePayment: $@\n";
+    warn "Exception when calling PaymentsApi->initiatePayment: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-initiatePayment-0-python">
+                            <div class="tab-pane" id="examples-Payments-initiatePayment-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1685,7 +1689,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = swagger_client.PaymentsApi()
 body =  # PaymentRequest | Optional description in *Markdown*
 
 try: 
@@ -1693,7 +1697,7 @@ try:
 
     api_instance.initiate_payment(body)
 except ApiException as e:
-    print("Exception when calling DefaultApi->initiatePayment: %s\n" % e)</code></pre>
+    print("Exception when calling PaymentsApi->initiatePayment: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
