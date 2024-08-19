@@ -1,4 +1,4 @@
-package no.obrien.fakebank.provider;
+package no.obrien.fakebank.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,18 +7,18 @@ import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /***
  * Provides payment requests
  */
-@Component
+@Service
 @RequiredArgsConstructor
 @Slf4j
-public class PaymentProvider {
+public class PaymentService {
 
-  private final AccountProvider accountProvider;
+  private final AccountService accountService;
 
   /***
    * Initiates a payment with the given request
@@ -30,10 +30,10 @@ public class PaymentProvider {
   public void initiatePayment(
       Long creditorAccountId, Long debtorAccountId, InstructedAmount instructedAmount)
       throws InsufficientFundsException, InvalidAccountException, InvalidPaymentRequestException {
-    log.info("Initiate payment from PaymentProvider");
+    log.info("Initiate payment from PaymentService");
 
-    Account creditorAccount = accountProvider.getAccount(creditorAccountId);
-    Account debtorAccount = accountProvider.getAccount(debtorAccountId);
+    Account creditorAccount = accountService.getAccount(creditorAccountId);
+    Account debtorAccount = accountService.getAccount(debtorAccountId);
 
     var amount = Double.parseDouble(instructedAmount.getAmount());
     validatePaymentRequest(debtorAccount, amount);
@@ -41,8 +41,8 @@ public class PaymentProvider {
     creditorAccount.setBalance(creditorAccount.getBalance() + amount);
     debtorAccount.setBalance(debtorAccount.getBalance() - amount);
 
-    accountProvider.saveAccount(creditorAccount);
-    accountProvider.saveAccount(debtorAccount);
+    accountService.saveAccount(creditorAccount);
+    accountService.saveAccount(debtorAccount);
   }
 
   /***

@@ -8,8 +8,8 @@ import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import no.obrien.fakebank.provider.AccountProvider;
-import no.obrien.fakebank.provider.PaymentProvider;
+import no.obrien.fakebank.service.AccountService;
+import no.obrien.fakebank.service.PaymentService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -28,16 +28,16 @@ public class InvalidPaymentRequestExceptionTest {
   @Test()
   void initiatePayment_invalidAccount_throwsInvalidAccountException()
       throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
-    var paymentProvider = new PaymentProvider(accountProvider);
+    var accountService = mock(AccountService.class);
+    var paymentService = new PaymentService(accountService);
 
-    when(accountProvider.getAccount(anyLong())).thenReturn(Account.builder().build());
+    when(accountService.getAccount(anyLong())).thenReturn(Account.builder().build());
 
     var exception =
         assertThrows(
             InvalidPaymentRequestException.class,
             () ->
-                paymentProvider.initiatePayment(
+                paymentService.initiatePayment(
                     1L, 2L, new InstructedAmount().amount("-10.0")));
 
     assertEquals("Invalid payment request", exception.getMessage());

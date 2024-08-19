@@ -3,6 +3,8 @@ package no.obrien.fakebank.config;
 import javax.sql.DataSource;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import no.obrien.fakebank.repository.AccountRepository;
+import no.obrien.fakebank.repository.AccountRepositoryMock;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,5 +40,16 @@ public class DbConfig {
     dataSource.setDriverClassName(driverClassName);
 
     return dataSource;
+  }
+
+  /***
+   * Configures the account provider to use a mock repository
+   * @return the account provider
+   */
+  @Bean
+  @Profile({"mock"})
+  public AccountRepository accountRepositoryMock() {
+    log.info("Using mock account provider");
+    return new AccountRepositoryMock();
   }
 }

@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import no.obrien.fakebank.api.PaymentsApi;
 import no.obrien.fakebank.model.PaymentRequest;
-import no.obrien.fakebank.provider.PaymentProvider;
+import no.obrien.fakebank.service.PaymentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class PaymentController implements PaymentsApi {
 
-  private final PaymentProvider paymentProvider;
+  private final PaymentService paymentService;
 
   /***
    * Initiates a payment between two accounts
@@ -30,7 +30,7 @@ public class PaymentController implements PaymentsApi {
   public ResponseEntity<Void> initiatePayment(PaymentRequest paymentRequest) {
     log.info("Received initiatePayment request");
 
-    paymentProvider.initiatePayment(
+    paymentService.initiatePayment(
         paymentRequest.getCreditorAccount(),
         paymentRequest.getDebtorAccount(),
         paymentRequest.getInstructedAmount());

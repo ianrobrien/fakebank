@@ -1,4 +1,4 @@
-package no.obrien.fakebank.provider;
+package no.obrien.fakebank.service;
 
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -6,13 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.repository.AccountRepository;
+import org.springframework.stereotype.Service;
 
 /***
- * An implementation of AccountProvider which fetches accounts from a repository
+ * An implementation of AccountService which fetches accounts from a repository
  */
+@Service
 @RequiredArgsConstructor
 @Slf4j
-public class AccountProvider {
+public class AccountService {
 
   private final AccountRepository accountRepository;
 

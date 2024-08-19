@@ -13,11 +13,11 @@ import no.obrien.fakebank.exception.InvalidAccountException;
 import no.obrien.fakebank.exception.InvalidPaymentRequestException;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
-import no.obrien.fakebank.model.PaymentRequest;
 import no.obrien.fakebank.model.Owner;
-import no.obrien.fakebank.provider.AccountProvider;
-import no.obrien.fakebank.provider.PaymentProvider;
+import no.obrien.fakebank.model.PaymentRequest;
 import no.obrien.fakebank.repository.AccountRepository;
+import no.obrien.fakebank.service.AccountService;
+import no.obrien.fakebank.service.PaymentService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.http.HttpStatus;
@@ -39,9 +39,9 @@ class PaymentControllerTest {
     when(accountRepository.findById(anyLong())).thenReturn(
         Optional.of(Account.builder().build()));
 
-    var accountProvider = new AccountProvider(accountRepository);
-    var paymentProvider = new PaymentProvider(accountProvider);
-    var paymentController = new PaymentController(paymentProvider);
+    var accountService = new AccountService(accountRepository);
+    var paymentService = new PaymentService(accountService);
+    var paymentController = new PaymentController(paymentService);
 
     assertThrows(
         InvalidPaymentRequestException.class,
@@ -59,12 +59,12 @@ class PaymentControllerTest {
    */
   @Test
   void initiatePayment_invalidAccount_throwsException() throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
-    var paymentProvider = new PaymentProvider(accountProvider);
+    var accountService = mock(AccountService.class);
+    var paymentService = new PaymentService(accountService);
 
-    when(accountProvider.getAccount(anyLong())).thenThrow(new InvalidAccountException());
+    when(accountService.getAccount(anyLong())).thenThrow(new InvalidAccountException());
 
-    var paymentController = new PaymentController(paymentProvider);
+    var paymentController = new PaymentController(paymentService);
     assertThrows(
         InvalidAccountException.class,
         () ->
@@ -81,8 +81,8 @@ class PaymentControllerTest {
    */
   @Test
   void initiatePayment_insufficientFunds_throwsException() throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
-    var paymentProvider = new PaymentProvider(accountProvider);
+    var accountService = mock(AccountService.class);
+    var paymentService = new PaymentService(accountService);
 
     var owner = mock(Owner.class);
 
@@ -90,11 +90,11 @@ class PaymentControllerTest {
     when(owner.getLastName()).thenReturn("O'Brien");
     when(owner.getId()).thenReturn(1L);
 
-    when(accountProvider.getAccount(anyLong()))
+    when(accountService.getAccount(anyLong()))
         .thenReturn(
             Account.builder().id(1L).balance(0.0).currency("NOK").owner(owner).build());
 
-    var paymentController = new PaymentController(paymentProvider);
+    var paymentController = new PaymentController(paymentService);
     assertThrows(
         InsufficientFundsException.class,
         () ->
@@ -110,8 +110,8 @@ class PaymentControllerTest {
    */
   @Test
   void initiatePayment_validRequest_success() throws InvalidAccountException {
-    var accountProvider = mock(AccountProvider.class);
-    var paymentProvider = mock(PaymentProvider.class);
+    var accountService = mock(AccountService.class);
+    var paymentService = mock(PaymentService.class);
 
     var owner = mock(Owner.class);
 
@@ -119,15 +119,15 @@ class PaymentControllerTest {
     when(owner.getLastName()).thenReturn("O'Brien");
     when(owner.getId()).thenReturn(1L);
 
-    when(accountProvider.getAccount(1L))
+    when(accountService.getAccount(1L))
         .thenReturn(
             Account.builder().id(1L).balance(0.0).currency("NOK").owner(owner).build());
 
-    when(accountProvider.getAccount(2L))
+    when(accountService.getAccount(2L))
         .thenReturn(
             Account.builder().id(2L).balance(0.0).currency("NOK").owner(owner).build());
 
-    var paymentController = new PaymentController(paymentProvider);
+    var paymentController = new PaymentController(paymentService);
     var response =
         paymentController.initiatePayment(
             new PaymentRequest()
@@ -138,14 +138,4 @@ class PaymentControllerTest {
     assertNotNull(response);
     assertEquals(HttpStatus.OK, response.getStatusCode());
   }
-
-//  private User getMockOwner() {
-//    var owner = mock(User.class);
-//
-//    when(owner.getFirstName()).thenReturn("Ian Robert");
-//    when(owner.getLastName()).thenReturn("O'Brien");
-//    when(owner.getId()).thenReturn(1L);
-//
-//    return owner;
-//  }
 }

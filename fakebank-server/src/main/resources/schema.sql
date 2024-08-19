@@ -1,4 +1,3 @@
--- create the schema
 CREATE TABLE IF NOT EXISTS owner
 (
   id         BIGINT       NOT NULL AUTO_INCREMENT,
