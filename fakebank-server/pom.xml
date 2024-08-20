@@ -72,6 +72,11 @@
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
                 <interfaceOnly>true</interfaceOnly>
+                <additionalModelTypeAnnotations>
+                  @lombok.Builder
+                  @lombok.AllArgsConstructor
+                  @lombok.NoArgsConstructor
+                </additionalModelTypeAnnotations>
               </configOptions>
             </configuration>
           </execution>

@@ -79,6 +79,10 @@
               <configOptions>
                 <sourceFolder>src/gen/java/main</sourceFolder>
                 <apiNameSuffix>Fakebank</apiNameSuffix>
+                <additionalModelTypeAnnotations>
+                  @lombok.Builder
+                  @lombok.AllArgsConstructor
+                </additionalModelTypeAnnotations>
               </configOptions>
             </configuration>
           </execution>
