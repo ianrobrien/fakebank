@@ -3,8 +3,8 @@ package no.obrien.fakebank.mapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.Owner;
@@ -107,7 +107,7 @@ class AccountMapperTest {
     var ownerId = 1L;
 
     var owner = mock(Owner.class);
-    when(owner.getId()).thenReturn(ownerId);
+    given(owner.getId()).willReturn(ownerId);
 
     var account = Account.builder().balance(balance).currency(currency).id(id).owner(owner).build();
 

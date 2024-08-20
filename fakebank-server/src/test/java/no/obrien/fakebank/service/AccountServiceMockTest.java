@@ -1,45 +1,48 @@
 package no.obrien.fakebank.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.util.Optional;
-import no.obrien.fakebank.exception.InvalidAccountException;
+import no.obrien.fakebank.mapper.AccountMapper;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.Owner;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 
 /***
  * Tests the account provider
  */
+@ContextConfiguration(classes = {AccountMapper.class})
 public class AccountServiceMockTest {
+
+  @MockBean
+  private AccountMapper accountMapper;
 
   /***
    * Verifies that a valid account request returns the valid account
-   * @throws InvalidAccountException
    */
   @Test
-  void getAccount_validInput_validOutput() throws InvalidAccountException {
+  void getAccount_validInput_validOutput() {
     var id = 1L;
     var balance = 0.0;
     var currency = "NOK";
 
-    var owner = mock(Owner.class);
-    when(owner.getFirstName()).thenReturn("Ian Robert");
-    when(owner.getLastName()).thenReturn("O'Brien");
+    var owner = Owner.builder().firstName("Ian Robert").lastName("O'Brien").build();
 
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.findById(id))
-        .thenReturn(
+    given(accountRepository.findById(id))
+        .willReturn(
             Optional.of(Account.builder()
                 .id(id)
                 .balance(balance)
                 .currency(currency)
                 .owner(owner).build()));
 
-    var accountService = new AccountService(accountRepository);
+    var accountService = new AccountService(accountRepository, accountMapper);
 
     var account = accountService.getAccount(id);
     assertEquals(id, account.getId());
