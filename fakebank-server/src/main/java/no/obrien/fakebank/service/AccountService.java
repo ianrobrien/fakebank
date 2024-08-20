@@ -4,7 +4,10 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import no.obrien.fakebank.exception.InvalidAccountException;
+import no.obrien.fakebank.mapper.AccountMapper;
 import no.obrien.fakebank.model.Account;
+import no.obrien.fakebank.model.AccountBalance;
+import no.obrien.fakebank.model.AccountDetails;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class AccountService {
 
   private final AccountRepository accountRepository;
+  private final AccountMapper accountMapper;
 
   /***
    * Gets an account from the given account id
@@ -29,6 +33,26 @@ public class AccountService {
     return Optional.of(accountRepository.findById(accountId))
         .get()
         .orElseThrow(InvalidAccountException::new);
+  }
+
+  /***
+   * Gets an account details from the given account id
+   * @param accountId the account id of the requested account
+   * @return the requested account details
+   * @throws InvalidAccountException when the account id is invalid
+   */
+  public AccountDetails getAccountDetails(Long accountId) throws InvalidAccountException {
+    return accountMapper.toAccountDetails(this.getAccount(accountId));
+  }
+
+  /***
+   * Gets an account balance from the given account id
+   * @param accountId the account id of the requested account
+   * @return the requested account balance
+   * @throws InvalidAccountException when the account id is invalid
+   */
+  public AccountBalance getAccountBalance(Long accountId) throws InvalidAccountException {
+    return accountMapper.toAccountBalance(this.getAccount(accountId));
   }
 
   /***

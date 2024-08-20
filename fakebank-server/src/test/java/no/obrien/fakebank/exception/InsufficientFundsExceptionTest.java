@@ -3,8 +3,8 @@ package no.obrien.fakebank.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
@@ -29,7 +29,7 @@ public class InsufficientFundsExceptionTest {
     var accountService = mock(AccountService.class);
 
     try {
-      when(accountService.getAccount(anyLong())).thenReturn(Account.builder().build());
+      given(accountService.getAccount(anyLong())).willReturn(Account.builder().build());
     } catch (InvalidAccountException e) {
       throw new RuntimeException(e);
     }

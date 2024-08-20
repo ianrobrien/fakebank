@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import no.obrien.fakebank.api.AccountsApi;
-import no.obrien.fakebank.mapper.AccountMapper;
-import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.AccountBalance;
 import no.obrien.fakebank.model.AccountDetails;
 import no.obrien.fakebank.service.AccountService;
@@ -22,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController implements AccountsApi {
 
   private final AccountService accountService;
-  private final AccountMapper accountMapper;
 
   /***
    * Returns the balance of an account given by its id
@@ -33,8 +30,7 @@ public class AccountController implements AccountsApi {
   @Override
   public ResponseEntity<AccountBalance> getAccountBalance(Long accountId) {
     log.info("Received getAccountBalance request for account {}", accountId);
-    Account account = accountService.getAccount(accountId);
-    return ResponseEntity.ok(accountMapper.toAccountBalance(account));
+    return ResponseEntity.ok(accountService.getAccountBalance(accountId));
   }
 
   /***
@@ -46,7 +42,6 @@ public class AccountController implements AccountsApi {
   @Override
   public ResponseEntity<AccountDetails> getAccountDetails(Long accountId) {
     log.info("Received getAccountDetails request for account {}", accountId);
-    Account account = accountService.getAccount(accountId);
-    return ResponseEntity.ok(accountMapper.toAccountDetails(account));
+    return ResponseEntity.ok(accountService.getAccountDetails(accountId));
   }
 }

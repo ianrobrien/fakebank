@@ -1,8 +1,8 @@
 package no.obrien.fakebank.interceptor;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class RequestInterceptorTest {
   @Test
   void validInterceptorResult() {
     var request = mock(HttpServletRequest.class);
-    when(request.getRequestURI()).thenReturn("localhost:8080/accounts/1/balance");
+    given(request.getRequestURI()).willReturn("localhost:8080/accounts/1/balance");
 
     var requestInterceptor = new RequestInterceptor();
     assertTrue(requestInterceptor.preHandle(request, null, null));

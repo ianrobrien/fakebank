@@ -3,24 +3,29 @@ package no.obrien.fakebank.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import no.obrien.fakebank.exception.InsufficientFundsException;
 import no.obrien.fakebank.exception.InvalidAccountException;
-import no.obrien.fakebank.exception.InvalidPaymentRequestException;
+import no.obrien.fakebank.mapper.AccountMapper;
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
 import no.obrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 
 /***
  * Tests the payment provider
  */
 @ExtendWith(MockitoExtension.class)
+@ContextConfiguration(classes = {AccountMapper.class})
 public class PaymentServiceMockTest {
+
+  @MockBean
+  private AccountMapper accountMapper;
 
   /***
    * Verify that initiating a payment with an invalid account id throws and invalid account
@@ -29,9 +34,9 @@ public class PaymentServiceMockTest {
   @Test
   void initiatePayment_invalidAccount_throwsException() {
     var accountRepository = mock(AccountRepository.class);
-    when(accountRepository.findById(anyLong())).thenThrow(new InvalidAccountException());
+    given(accountRepository.findById(anyLong())).willThrow(new InvalidAccountException());
 
-    var paymentService = new PaymentService(new AccountService(accountRepository));
+    var paymentService = new PaymentService(new AccountService(accountRepository, accountMapper));
 
     assertThrows(
         InvalidAccountException.class,
@@ -41,11 +46,9 @@ public class PaymentServiceMockTest {
   /***
    * Verify that initiating a valid payment results in the creditor being credited and the
    * debtor being debited
-   * @throws InvalidAccountException
    */
   @Test
-  void initiatePayment_validRequest_updatesBalance()
-      throws InvalidAccountException, InsufficientFundsException, InvalidPaymentRequestException {
+  void initiatePayment_validRequest_updatesBalance() {
     var debtorId = 1L;
     var creditorId = 2L;
 
@@ -53,8 +56,8 @@ public class PaymentServiceMockTest {
     var creditor = Account.builder().balance(100).id(creditorId).build();
 
     var accountService = mock(AccountService.class);
-    when(accountService.getAccount(debtorId)).thenReturn(debtor);
-    when(accountService.getAccount(creditorId)).thenReturn(creditor);
+    given(accountService.getAccount(debtorId)).willReturn(debtor);
+    given(accountService.getAccount(creditorId)).willReturn(creditor);
 
     var paymentService = new PaymentService(accountService);
     paymentService.initiatePayment(

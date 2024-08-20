@@ -3,8 +3,8 @@ package no.obrien.fakebank.exception;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import no.obrien.fakebank.model.Account;
 import no.obrien.fakebank.model.InstructedAmount;
@@ -23,15 +23,13 @@ public class InvalidPaymentRequestExceptionTest {
   /***
    * Verifies that requesting a payment with an invalid account throws
    * an invalid account exception
-   * @throws InvalidAccountException
    */
   @Test()
-  void initiatePayment_invalidAccount_throwsInvalidAccountException()
-      throws InvalidAccountException {
+  void initiatePayment_invalidAccount_throwsInvalidAccountException() {
     var accountService = mock(AccountService.class);
     var paymentService = new PaymentService(accountService);
 
-    when(accountService.getAccount(anyLong())).thenReturn(Account.builder().build());
+    given(accountService.getAccount(anyLong())).willReturn(Account.builder().build());
 
     var exception =
         assertThrows(
