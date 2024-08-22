@@ -15,7 +15,7 @@ docker compose build
 docker composer up fakebank
 ```
 
-## Bru collection
+## Bruno collection
 
 Import the [Bruno collection](docs/bruno/fakebank/bruno.json) to
 make local API calls.
