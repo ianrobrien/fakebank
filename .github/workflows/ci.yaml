@@ -77,7 +77,7 @@ jobs:
           jacoco-csv-file: www/coverage/jacoco.csv
           coverage-label: Coverage
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.CREATE_PR_TOKEN }}
           title: "[create-pull-request] Update Jacoco coverage report"
