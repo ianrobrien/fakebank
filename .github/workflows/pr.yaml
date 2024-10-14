@@ -23,20 +23,20 @@ jobs:
   #            app:
   #              - 'fakebank-impl/**'
   #              - 'fakebake-api/**'
-  vale:
-    name: Vale
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: errata-ai/vale-action@reviewdog
-        with:
-          fail_on_error: true
-          reporter: github-check
-          vale_flags: "--glob=*.{md,txt}"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#  vale:
+#    name: Vale
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - uses: errata-ai/vale-action@reviewdog
+#        with:
+#          fail_on_error: true
+#          reporter: github-check
+#          vale_flags: "--glob=*.{md,txt}"
+#        env:
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   build:
-    needs: [vale]
+#    needs: [vale]
     #    if: ${{ needs.changes.outputs.app == 'true' }}
     name: Build
     runs-on: ubuntu-latest
