@@ -28,7 +28,7 @@
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mapstruct.version>1.6.2</mapstruct.version>
-    <mockito-core.version>5.14.1</mockito-core.version>
+    <mockito-core.version>5.14.2</mockito-core.version>
     <lombok.version>1.18.34</lombok.version>
     <openapi-generator-maven-plugin.version>7.9.0</openapi-generator-maven-plugin.version>
   </properties>
@@ -71,7 +71,7 @@
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
-        <version>6.1.13</version>
+        <version>6.1.14</version>
       </dependency>
       <dependency>
         <groupId>org.xmlunit</groupId>
@@ -169,7 +169,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>6.1.13</version>
+      <version>6.1.14</version>
       <scope>compile</scope>
       <exclusions>
         <exclusion>
@@ -181,7 +181,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>6.1.13</version>
+      <version>6.1.14</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -199,7 +199,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>6.1.13</version>
+      <version>6.1.14</version>
       <scope>compile</scope>
     </dependency>
 
@@ -292,7 +292,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>6.1.13</version>
+      <version>6.1.14</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
