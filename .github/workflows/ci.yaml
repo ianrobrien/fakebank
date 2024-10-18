@@ -13,36 +13,36 @@ env:
   IMAGE_NAME: fakebank
 
 jobs:
-#  changes:
-#    name: "Checking folders for changes"
-#    runs-on: ubuntu-latest
-#    outputs:
-#      app: ${{ steps.changes.outputs.app }}
-#    steps:
-#      - name: "Checkout"
-#        uses: actions/checkout@v4
-#      - uses: dorny/paths-filter@v3.0.2
-#        id: changes
-#        with:
-#          filters: |
-#            app:
-#              - 'fakebank-impl/**'
-#              - 'fakebake-api/**'
-#  vale:
-#    name: Vale
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v4
-#      - uses: errata-ai/vale-action@reviewdog
-#        with:
-#          fail_on_error: true
-#          reporter: github-check
-#          vale_flags: "--glob=*.{md,txt}"
-#        env:
-#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  #  changes:
+  #    name: "Checking folders for changes"
+  #    runs-on: ubuntu-latest
+  #    outputs:
+  #      app: ${{ steps.changes.outputs.app }}
+  #    steps:
+  #      - name: "Checkout"
+  #        uses: actions/checkout@v4
+  #      - uses: dorny/paths-filter@v3.0.2
+  #        id: changes
+  #        with:
+  #          filters: |
+  #            app:
+  #              - 'fakebank-impl/**'
+  #              - 'fakebake-api/**'
+  vale:
+    name: Vale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: errata-ai/vale-action@reviewdog
+        with:
+          fail_on_error: true
+          reporter: github-check
+          vale_flags: "--glob=*.{md,txt}"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   build:
-#    needs: [vale]
-#    if: ${{ needs.changes.outputs.app == 'true' }}
+    needs: [vale]
+    #    if: ${{ needs.changes.outputs.app == 'true' }}
     name: Build
     runs-on: ubuntu-latest
     permissions:
@@ -97,7 +97,7 @@ jobs:
           path: 'www/coverage/'
   build-store-image:
     needs: [build]
-#    if: ${{ needs.changes.outputs.app == 'true' }}
+    #    if: ${{ needs.changes.outputs.app == 'true' }}
     name: Build and store image
     runs-on: ubuntu-latest
     permissions:
