@@ -6,11 +6,13 @@
 [![Coverage](.github/badges/jacoco.svg)](https://www.ianrobrien.dev/fakebank/coverage)
 [![Coverage](.github/badges/branches.svg)](https://www.ianrobrien.dev/fakebank/coverage)
 
-[![fakebank-api](https://img.shields.io/badge/fakebank--api-4c8eca)](https://ianrobrien.dev/fakebank/api)
+[![FakeBank-api](https://img.shields.io/badge/fakebank--api-4c8eca)](https://ianrobrien.dev/fakebank/api)
 
 ## Overview
 
-FakeBank is a sample banking application built with Spring Boot, Java, and Maven. It provides a set of RESTful APIs for managing bank accounts and processing payments.
+FakeBank is a sample banking application built with Spring Boot, Java, and
+Maven. It provides a set of RESTful APIs for managing bank accounts and
+processing payments.
 
 ## Table of Contents
 
@@ -70,7 +72,8 @@ Configuration files are located in the `src/main/resources` directory:
 
 ## API Documentation
 
-To see a complete specification, check the [API summary](https://www.ianrobrien.dev/fakebank/api) or the [YAML spec](docs/api/fakebank.api.yaml).
+To see a complete specification, check the [API summary](https://www.ianrobrien.dev/fakebank/api)
+or the [YAML spec](docs/api/fakebank.api.yaml).
 
 ## Testing
 
