@@ -31,6 +31,7 @@
     <mockito-core.version>5.14.2</mockito-core.version>
     <lombok.version>1.18.34</lombok.version>
     <openapi-generator-maven-plugin.version>7.9.0</openapi-generator-maven-plugin.version>
+    <spring.version>6.1.14</spring.version>
   </properties>
 
   <distributionManagement>
@@ -71,7 +72,7 @@
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
-        <version>6.1.14</version>
+        <version>${spring.version}</version>
       </dependency>
       <dependency>
         <groupId>org.xmlunit</groupId>
@@ -141,15 +142,18 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -163,13 +167,12 @@
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-commons</artifactId>
-      <version>3.3.5</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>6.1.14</version>
+      <version>${spring.version}</version>
       <scope>compile</scope>
       <exclusions>
         <exclusion>
@@ -181,7 +184,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>6.1.14</version>
+      <version>${spring.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -199,7 +202,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>6.1.14</version>
+      <version>${spring.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -292,7 +295,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>6.1.14</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
