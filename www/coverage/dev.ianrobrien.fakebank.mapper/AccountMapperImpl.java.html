@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountMapperImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fakebank-server</a> &gt; <a href="index.source.html" class="el_package">dev.ianrobrien.fakebank.mapper</a> &gt; <span class="el_source">AccountMapperImpl.java</span></div><h1>AccountMapperImpl.java</h1><pre class="source lang-java linenums">package dev.ianrobrien.fakebank.mapper;
+
+import dev.ianrobrien.fakebank.model.Account;
+import dev.ianrobrien.fakebank.model.AccountBalance;
+import dev.ianrobrien.fakebank.model.AccountDetails;
+import dev.ianrobrien.fakebank.model.Owner;
+import java.text.DecimalFormat;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2024-10-27T20:49:57+0000&quot;,
+    comments = &quot;version: 1.6.2, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)&quot;
+)
+@Component
+<span class="fc" id="L17">public class AccountMapperImpl implements AccountMapper {</span>
+
+    @Override
+    public AccountDetails toAccountDetails(Account account) {
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if ( account == null ) {</span>
+<span class="fc" id="L22">            return null;</span>
+        }
+
+<span class="fc" id="L25">        AccountDetails.AccountDetailsBuilder accountDetails = AccountDetails.builder();</span>
+
+<span class="fc" id="L27">        accountDetails.accountId( account.getId() );</span>
+<span class="fc" id="L28">        accountDetails.balance( new DecimalFormat( &quot;#.00&quot; ).format( account.getBalance() ) );</span>
+<span class="fc" id="L29">        accountDetails.currency( account.getCurrency() );</span>
+<span class="fc" id="L30">        accountDetails.ownerId( accountOwnerId( account ) );</span>
+
+<span class="fc" id="L32">        return accountDetails.build();</span>
+    }
+
+    @Override
+    public AccountBalance toAccountBalance(Account account) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if ( account == null ) {</span>
+<span class="fc" id="L38">            return null;</span>
+        }
+
+<span class="fc" id="L41">        AccountBalance.AccountBalanceBuilder accountBalance = AccountBalance.builder();</span>
+
+<span class="fc" id="L43">        accountBalance.accountId( account.getId() );</span>
+<span class="fc" id="L44">        accountBalance.balance( new DecimalFormat( &quot;#.00&quot; ).format( account.getBalance() ) );</span>
+<span class="fc" id="L45">        accountBalance.currency( account.getCurrency() );</span>
+
+<span class="fc" id="L47">        return accountBalance.build();</span>
+    }
+
+    private Long accountOwnerId(Account account) {
+<span class="fc" id="L51">        Owner owner = account.getOwner();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if ( owner == null ) {</span>
+<span class="fc" id="L53">            return null;</span>
+        }
+<span class="fc" id="L55">        return owner.getId();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

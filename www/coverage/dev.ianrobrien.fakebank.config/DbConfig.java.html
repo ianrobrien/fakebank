@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DbConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fakebank-server</a> &gt; <a href="index.source.html" class="el_package">dev.ianrobrien.fakebank.config</a> &gt; <span class="el_source">DbConfig.java</span></div><h1>DbConfig.java</h1><pre class="source lang-java linenums">package dev.ianrobrien.fakebank.config;
+
+import javax.sql.DataSource;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import dev.ianrobrien.fakebank.repository.AccountRepository;
+import dev.ianrobrien.fakebank.repository.AccountRepositoryMock;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+/***
+ * Configures the database connection
+ */
+@Configuration
+@Setter
+@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)
+<span class="nc" id="L20">@Slf4j</span>
+<span class="nc" id="L21">public class DbConfig {</span>
+
+  private String url;
+  private String username;
+  private String password;
+  private String driverClassName;
+
+  /***
+   * Configures the database connection
+   * @return the data source
+   */
+  @Bean
+  @Profile({&quot;local&quot;, &quot;dev&quot;})
+  public DataSource dataSource() {
+<span class="nc" id="L35">    DriverManagerDataSource dataSource = new DriverManagerDataSource(</span>
+        url,
+        username,
+        password
+    );
+<span class="nc" id="L40">    dataSource.setDriverClassName(driverClassName);</span>
+
+<span class="nc" id="L42">    return dataSource;</span>
+  }
+
+  /***
+   * Configures the account provider to use a mock repository
+   * @return the account provider
+   */
+  @Bean
+  @Profile({&quot;mock&quot;})
+  public AccountRepository accountRepositoryMock() {
+<span class="nc" id="L52">    log.info(&quot;Using mock account provider&quot;);</span>
+<span class="nc" id="L53">    return new AccountRepositoryMock();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
