@@ -2,11 +2,11 @@
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import no.obrien.fakebank.exception.InsufficientFundsException;
-import no.obrien.fakebank.exception.InvalidAccountException;
-import no.obrien.fakebank.exception.InvalidPaymentRequestException;
-import no.obrien.fakebank.model.Account;
-import no.obrien.fakebank.model.InstructedAmount;
+import exception.dev.ianrobrien.fakebank.InsufficientFundsException;
+import exception.dev.ianrobrien.fakebank.InvalidAccountException;
+import exception.dev.ianrobrien.fakebank.InvalidPaymentRequestException;
+import model.dev.ianrobrien.fakebank.Account;
+import model.dev.ianrobrien.fakebank.InstructedAmount;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
