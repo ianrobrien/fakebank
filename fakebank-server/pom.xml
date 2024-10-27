@@ -146,9 +146,9 @@
                 </goals>
                 <configuration>
                   <excludes>
-                    <exclude>no/obrien/fakebank/Main.class</exclude>
-                    <exclude>no/obrien/fakebank/api/*.class</exclude>
-                    <exclude>no/obrien/fakebank/model/*.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/Main.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/api/*.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/model/*.class</exclude>
                   </excludes>
                 </configuration>
               </execution>
@@ -159,11 +159,11 @@
                   <goal>report</goal>
                 </goals>
                 <configuration>
-                  <outputDirectory>${project.basedir}/www/coverage</outputDirectory>
+                  <outputDirectory>${project.basedir}/../www/coverage</outputDirectory>
                   <excludes>
-                    <exclude>no/obrien/fakebank/Main.class</exclude>
-                    <exclude>no/obrien/fakebank/api/*.class</exclude>
-                    <exclude>no/obrien/fakebank/model/*.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/Main.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/api/*.class</exclude>
+                    <exclude>dev/ianrobrien/fakebank/model/*.class</exclude>
                   </excludes>
                 </configuration>
               </execution>
