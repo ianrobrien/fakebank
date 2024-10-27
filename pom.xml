@@ -11,7 +11,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>no.obrien</groupId>
+  <groupId>dev.ianrobrien</groupId>
   <artifactId>fakebank</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
