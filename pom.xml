@@ -29,7 +29,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mapstruct.version>1.6.3</mapstruct.version>
     <mockito-core.version>5.14.2</mockito-core.version>
-    <lombok.version>1.18.34</lombok.version>
+    <lombok.version>1.18.36</lombok.version>
     <openapi-generator-maven-plugin.version>7.9.0</openapi-generator-maven-plugin.version>
     <spring.version>6.1.14</spring.version>
   </properties>
