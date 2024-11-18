@@ -14,6 +14,9 @@ updates:
     schedule:
       interval: "daily"
     groups:
+      spring:
+        patterns:
+          - "org.springframework*"  
       patch-updates:
         update-types:
           - "patch"
