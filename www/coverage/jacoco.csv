@@ -8,8 +8,8 @@ fakebank-server,dev.ianrobrien.fakebank.exception,InsufficientFundsException,0,4
 fakebank-server,dev.ianrobrien.fakebank.interceptor,RequestInterceptor,0,14,0,0,0,4,0,3,0,3
 fakebank-server,dev.ianrobrien.fakebank.repository,AccountRepositoryMock,0,65,0,0,0,16,0,14,0,14
 fakebank-server,dev.ianrobrien.fakebank.filter,CorsFilter,0,36,0,0,0,12,0,4,0,4
-fakebank-server,dev.ianrobrien.fakebank.controller,ControllerExceptionHandler,0,33,0,0,0,7,0,4,0,4
-fakebank-server,dev.ianrobrien.fakebank.controller,PaymentController,0,22,0,0,0,8,0,2,0,2
-fakebank-server,dev.ianrobrien.fakebank.controller,AccountController,0,30,0,0,0,7,0,3,0,3
+fakebank-server,dev.ianrobrien.fakebank.exceptions,ControllerExceptionHandler,0,33,0,0,0,7,0,4,0,4
+fakebank-server,dev.ianrobrien.fakebank.exceptions,PaymentController,0,22,0,0,0,8,0,2,0,2
+fakebank-server,dev.ianrobrien.fakebank.exceptions,AccountController,0,30,0,0,0,7,0,3,0,3
 fakebank-server,dev.ianrobrien.fakebank.config,DbConfig,30,0,0,0,7,0,4,0,4,0
 fakebank-server,dev.ianrobrien.fakebank.config,WebMvcConfig,10,0,0,0,3,0,2,0,2,0

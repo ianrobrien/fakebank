@@ -1,6 +1,6 @@
 package dev.ianrobrien.fakebank.config;
 
-import dev.ianrobrien.fakebank.interceptor.RequestInterceptor;
+import dev.ianrobrien.fakebank.interceptors.RequestInterceptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
