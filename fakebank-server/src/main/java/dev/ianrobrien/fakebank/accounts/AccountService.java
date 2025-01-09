@@ -1,14 +1,10 @@
-package dev.ianrobrien.fakebank.service;
+package dev.ianrobrien.fakebank.accounts;
 
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import dev.ianrobrien.fakebank.exception.InvalidAccountException;
-import dev.ianrobrien.fakebank.mapper.AccountMapper;
-import dev.ianrobrien.fakebank.model.Account;
 import dev.ianrobrien.fakebank.model.AccountBalance;
 import dev.ianrobrien.fakebank.model.AccountDetails;
-import dev.ianrobrien.fakebank.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
 /***

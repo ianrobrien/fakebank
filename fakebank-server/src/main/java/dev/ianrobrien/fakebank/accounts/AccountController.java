@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.controller;
+package dev.ianrobrien.fakebank.accounts;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import dev.ianrobrien.fakebank.api.AccountsApi;
 import dev.ianrobrien.fakebank.model.AccountBalance;
 import dev.ianrobrien.fakebank.model.AccountDetails;
-import dev.ianrobrien.fakebank.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 

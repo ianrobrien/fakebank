@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.exception;
+package dev.ianrobrien.fakebank.payments;
 
 /***
  * Thrown to indicate the payment request is invalid

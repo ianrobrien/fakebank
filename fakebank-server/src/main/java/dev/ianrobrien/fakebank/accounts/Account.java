@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.model;
+package dev.ianrobrien.fakebank.accounts;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +29,7 @@ public class Account {
   private Long id;
 
   @ManyToOne
-  private Owner owner;
+  private AccountOwner accountOwner;
 
   /***
    * The account balance (e.g. 256.16)

@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.exception;
+package dev.ianrobrien.fakebank.accounts;
 
 /***
  * Thrown to indicate that the given account is invalid

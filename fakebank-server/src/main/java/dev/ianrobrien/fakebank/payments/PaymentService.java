@@ -1,11 +1,10 @@
-package dev.ianrobrien.fakebank.service;
+package dev.ianrobrien.fakebank.payments;
 
+import dev.ianrobrien.fakebank.accounts.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import dev.ianrobrien.fakebank.exception.InsufficientFundsException;
-import dev.ianrobrien.fakebank.exception.InvalidAccountException;
-import dev.ianrobrien.fakebank.exception.InvalidPaymentRequestException;
-import dev.ianrobrien.fakebank.model.Account;
+import dev.ianrobrien.fakebank.accounts.InvalidAccountException;
+import dev.ianrobrien.fakebank.accounts.Account;
 import dev.ianrobrien.fakebank.model.InstructedAmount;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

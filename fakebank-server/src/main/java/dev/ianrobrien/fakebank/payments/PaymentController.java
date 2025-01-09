@@ -1,11 +1,10 @@
-package dev.ianrobrien.fakebank.controller;
+package dev.ianrobrien.fakebank.payments;
 
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import dev.ianrobrien.fakebank.api.PaymentsApi;
 import dev.ianrobrien.fakebank.model.PaymentRequest;
-import dev.ianrobrien.fakebank.service.PaymentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 

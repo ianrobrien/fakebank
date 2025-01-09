@@ -1,11 +1,9 @@
-package dev.ianrobrien.fakebank.repository;
+package dev.ianrobrien.fakebank.accounts;
 
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import dev.ianrobrien.fakebank.model.Account;
-import dev.ianrobrien.fakebank.model.Owner;
 import org.springframework.stereotype.Component;
 
 /***
@@ -25,7 +23,7 @@ public final class AccountRepositoryMock implements AccountRepository {
               .id(1L)
               .currency("GBP")
               .balance(100)
-              .owner(Owner.builder()
+              .accountOwner(AccountOwner.builder()
                   .id(1L)
                   .firstName("Ian Robert")
                   .lastName("O'Brien")
@@ -35,7 +33,7 @@ public final class AccountRepositoryMock implements AccountRepository {
               .id(2L)
               .currency("GBP")
               .balance(200)
-              .owner(Owner.builder()
+              .accountOwner(AccountOwner.builder()
                   .id(1L)
                   .firstName("Jenny Wold")
                   .lastName("O'Brien")

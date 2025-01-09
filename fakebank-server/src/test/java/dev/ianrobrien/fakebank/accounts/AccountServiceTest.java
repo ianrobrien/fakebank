@@ -1,11 +1,8 @@
-package dev.ianrobrien.fakebank.service;
+package dev.ianrobrien.fakebank.accounts;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import dev.ianrobrien.fakebank.mapper.AccountMapper;
-import dev.ianrobrien.fakebank.model.Account;
-import dev.ianrobrien.fakebank.repository.AccountRepositoryMock;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -24,7 +21,7 @@ class AccountServiceTest {
     var accountService = new AccountService(new AccountRepositoryMock(), accountMapper);
     assertEquals(
         "Ian Robert",
-        accountService.getAccount(1L).getOwner().getFirstName());
+        accountService.getAccount(1L).getAccountOwner().getFirstName());
   }
 
   @Test

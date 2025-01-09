@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.controller;
+package dev.ianrobrien.fakebank.accounts;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -8,13 +8,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
-import dev.ianrobrien.fakebank.exception.InvalidAccountException;
-import dev.ianrobrien.fakebank.mapper.AccountMapper;
-import dev.ianrobrien.fakebank.mapper.AccountMapperImpl;
-import dev.ianrobrien.fakebank.model.Account;
-import dev.ianrobrien.fakebank.model.Owner;
-import dev.ianrobrien.fakebank.repository.AccountRepository;
-import dev.ianrobrien.fakebank.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +39,7 @@ class AccountControllerTest {
             .id(4444L)
             .balance(0.0)
             .currency("NOK")
-            .owner(new Owner()).build()));
+            .accountOwner(new AccountOwner()).build()));
 
     var accountController = new AccountController(accountService);
 
@@ -82,7 +75,7 @@ class AccountControllerTest {
             .id(4444L)
             .balance(0.0)
             .currency("NOK")
-            .owner(Owner.builder().firstName("Ian Robert").lastName("O'Brien").build())
+            .accountOwner(AccountOwner.builder().firstName("Ian Robert").lastName("O'Brien").build())
             .build()));
 
     var accountService = new AccountService(accountRepository, accountMapper);
