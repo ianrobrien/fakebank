@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.repository;
+package dev.ianrobrien.fakebank.accounts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;

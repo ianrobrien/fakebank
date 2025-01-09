@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.service;
+package dev.ianrobrien.fakebank.payments;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,11 +6,12 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
-import dev.ianrobrien.fakebank.exception.InvalidAccountException;
-import dev.ianrobrien.fakebank.mapper.AccountMapper;
-import dev.ianrobrien.fakebank.model.Account;
+import dev.ianrobrien.fakebank.accounts.AccountService;
+import dev.ianrobrien.fakebank.accounts.InvalidAccountException;
+import dev.ianrobrien.fakebank.accounts.AccountMapper;
+import dev.ianrobrien.fakebank.accounts.Account;
 import dev.ianrobrien.fakebank.model.InstructedAmount;
-import dev.ianrobrien.fakebank.repository.AccountRepository;
+import dev.ianrobrien.fakebank.accounts.AccountRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

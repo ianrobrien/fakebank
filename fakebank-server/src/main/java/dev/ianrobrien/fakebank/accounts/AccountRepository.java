@@ -1,6 +1,5 @@
-package dev.ianrobrien.fakebank.repository;
+package dev.ianrobrien.fakebank.accounts;
 
-import dev.ianrobrien.fakebank.model.Account;
 import org.springframework.data.repository.CrudRepository;
 
 /***

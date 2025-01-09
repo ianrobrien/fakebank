@@ -1,14 +1,10 @@
-package dev.ianrobrien.fakebank.service;
+package dev.ianrobrien.fakebank.accounts;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
-import dev.ianrobrien.fakebank.mapper.AccountMapper;
-import dev.ianrobrien.fakebank.model.Account;
-import dev.ianrobrien.fakebank.model.Owner;
-import dev.ianrobrien.fakebank.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,7 +27,7 @@ public class AccountServiceMockTest {
     var balance = 0.0;
     var currency = "NOK";
 
-    var owner = Owner.builder().firstName("Ian Robert").lastName("O'Brien").build();
+    var owner = AccountOwner.builder().firstName("Ian Robert").lastName("O'Brien").build();
 
     var accountRepository = mock(AccountRepository.class);
     given(accountRepository.findById(id))
@@ -40,7 +36,7 @@ public class AccountServiceMockTest {
                 .id(id)
                 .balance(balance)
                 .currency(currency)
-                .owner(owner).build()));
+                .accountOwner(owner).build()));
 
     var accountService = new AccountService(accountRepository, accountMapper);
 

@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.model;
+package dev.ianrobrien.fakebank.accounts;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter
 @Builder
 @Entity
-public class Owner {
+public class AccountOwner {
 
   /***
    * The account ID (e.g. 1111)

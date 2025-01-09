@@ -1,4 +1,4 @@
-package dev.ianrobrien.fakebank.mapper;
+package dev.ianrobrien.fakebank.accounts;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
-import dev.ianrobrien.fakebank.model.Account;
-import dev.ianrobrien.fakebank.model.Owner;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
@@ -31,7 +29,7 @@ class AccountMapperTest {
         .balance(balance)
         .currency(currency)
         .id(id)
-        .owner(null).build();
+        .accountOwner(null).build();
 
     var accountDetails = accountMapper.toAccountDetails(account);
     assertNull(accountDetails.getOwnerId());
@@ -43,7 +41,7 @@ class AccountMapperTest {
     var currency = "NOK";
     var id = 12345L;
 
-    var owner = Owner.builder()
+    var owner = AccountOwner.builder()
         .firstName("first")
         .lastName("last")
         .build();
@@ -52,7 +50,7 @@ class AccountMapperTest {
         .balance(balance)
         .currency(currency)
         .id(id)
-        .owner(owner).build();
+        .accountOwner(owner).build();
 
     var accountDetails = accountMapper.toAccountDetails(account);
     assertNull(accountDetails.getOwnerId());
@@ -106,10 +104,10 @@ class AccountMapperTest {
     var id = 12345L;
     var ownerId = 1L;
 
-    var owner = mock(Owner.class);
+    var owner = mock(AccountOwner.class);
     given(owner.getId()).willReturn(ownerId);
 
-    var account = Account.builder().balance(balance).currency(currency).id(id).owner(owner).build();
+    var account = Account.builder().balance(balance).currency(currency).id(id).accountOwner(owner).build();
 
     var accountDetails = accountMapper.toAccountDetails(account);
 

@@ -1,8 +1,8 @@
 package dev.ianrobrien.fakebank.controller;
 
-import dev.ianrobrien.fakebank.exception.InsufficientFundsException;
-import dev.ianrobrien.fakebank.exception.InvalidAccountException;
-import dev.ianrobrien.fakebank.exception.InvalidPaymentRequestException;
+import dev.ianrobrien.fakebank.payments.InsufficientFundsException;
+import dev.ianrobrien.fakebank.accounts.InvalidAccountException;
+import dev.ianrobrien.fakebank.payments.InvalidPaymentRequestException;
 import dev.ianrobrien.fakebank.model.GeneralError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

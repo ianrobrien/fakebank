@@ -1,6 +1,5 @@
-package dev.ianrobrien.fakebank.mapper;
+package dev.ianrobrien.fakebank.accounts;
 
-import dev.ianrobrien.fakebank.model.Account;
 import dev.ianrobrien.fakebank.model.AccountBalance;
 import dev.ianrobrien.fakebank.model.AccountDetails;
 import org.mapstruct.Mapper;
@@ -21,7 +20,7 @@ public interface AccountMapper {
   @Mapping(target = "accountId", source = "id")
   @Mapping(target = "balance", source = "balance", numberFormat = "#.00")
   @Mapping(target = "currency", source = "currency")
-  @Mapping(target = "ownerId", source = "account.owner.id")
+  @Mapping(target = "ownerId", source = "accountOwner.id")
   AccountDetails toAccountDetails(Account account);
 
   /***
