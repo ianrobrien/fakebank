@@ -3,6 +3,7 @@ package dev.ianrobrien.fakebank.filter;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import dev.ianrobrien.fakebank.filters.CorsFilter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.mock.web.MockFilterChain;
