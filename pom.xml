@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.3</version>
+    <version>3.4.4</version>
     <relativePath/>
   </parent>
 
@@ -31,7 +31,7 @@
     <mockito-core.version>5.16.1</mockito-core.version>
     <lombok.version>1.18.36</lombok.version>
     <openapi-generator-maven-plugin.version>7.12.0</openapi-generator-maven-plugin.version>
-    <spring.version>6.2.3</spring.version>
+    <spring.version>6.2.5</spring.version>
   </properties>
 
   <distributionManagement>
@@ -136,7 +136,7 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter</artifactId>
-      <version>4.2.0</version>
+      <version>4.2.1</version>
       <exclusions>
         <exclusion>
           <groupId>ch.qos.logback</groupId>
