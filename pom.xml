@@ -31,7 +31,7 @@
     <mockito-core.version>5.17.0</mockito-core.version>
     <lombok.version>1.18.38</lombok.version>
     <openapi-generator-maven-plugin.version>7.12.0</openapi-generator-maven-plugin.version>
-    <spring.version>6.2.5</spring.version>
+    <spring.version>6.2.6</spring.version>
   </properties>
 
   <distributionManagement>
@@ -104,7 +104,7 @@
       <dependency>
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-crypto</artifactId>
-        <version>6.4.4</version>
+        <version>6.4.5</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
