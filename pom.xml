@@ -30,7 +30,7 @@
     <mapstruct.version>1.6.3</mapstruct.version>
     <mockito-core.version>5.17.0</mockito-core.version>
     <lombok.version>1.18.38</lombok.version>
-    <openapi-generator-maven-plugin.version>7.12.0</openapi-generator-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>7.13.0</openapi-generator-maven-plugin.version>
     <spring.version>6.2.6</spring.version>
   </properties>
 
@@ -246,7 +246,7 @@
     <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
-      <version>9.2.0</version>
+      <version>9.3.0</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
