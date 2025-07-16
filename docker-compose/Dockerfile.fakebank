@@ -8,7 +8,7 @@ RUN mvn -f /home/app/pom.xml clean install -DskipTests
 #
 # Package stage
 #
-FROM eclipse-temurin:21-alpine@sha256:2f2f553ce09d25e2d2f0f521ab94cd73f70c9b21327a29149c23a2b63b8e29a0
+FROM eclipse-temurin:21-alpine@sha256:8e26f8064f2b89bc8543faf43ded3f223f47dd0a7afca042fdc892f1f6a4a8c3
 LABEL org.opencontainers.image.source="https://github.com/ianrobrien/fakebank"
 
 COPY --from=build /home/app/fakebank-server/target/fakebank-server-1.0.0-SNAPSHOT.jar /usr/local/lib/fakebank-server.jar
