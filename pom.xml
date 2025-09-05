@@ -29,7 +29,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mapstruct.version>1.6.3</mapstruct.version>
     <mockito-core.version>5.19.0</mockito-core.version>
-    <lombok.version>1.18.38</lombok.version>
+    <lombok.version>1.18.40</lombok.version>
     <openapi-generator-maven-plugin.version>7.15.0</openapi-generator-maven-plugin.version>
     <spring.version>6.2.10</spring.version>
   </properties>
@@ -219,7 +219,7 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
-      <version>11.0.10</version>
+      <version>11.0.11</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
