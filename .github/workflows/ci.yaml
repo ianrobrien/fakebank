@@ -33,6 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: errata-ai/vale-action@reviewdog
         with:
           fail_on_error: true
@@ -51,6 +53,8 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
@@ -106,6 +110,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: 'Build fakebank image'
         run: |
           docker build --file docker-compose/Dockerfile.fakebank . --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
