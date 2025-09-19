@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: dorny/paths-filter@v3.0.2
         id: changes
         with:
@@ -38,7 +40,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-
+        with:
+          persist-credentials: false
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.3.2
         id: apply-upload
