@@ -6,10 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import lombok.SneakyThrows;
 
 /**
  * Tests the account mapper
@@ -68,6 +73,7 @@ class AccountMapperTest {
    * Verifies that mapping a valid input returns a valid output
    */
   @Test
+  @SneakyThrows
   void mapAccountBalance_validInput_validOutput() {
     assertNotNull(accountMapper);
 
@@ -79,7 +85,8 @@ class AccountMapperTest {
 
     var accountBalance = accountMapper.toAccountBalance(account);
 
-    assertEquals(balance, Double.parseDouble(accountBalance.getBalance()));
+    var format = NumberFormat.getInstance(Locale.US);
+    assertEquals(balance, format.parse(accountBalance.getBalance()).doubleValue());
     assertEquals(currency, accountBalance.getCurrency());
     assertEquals(id, accountBalance.getAccountId());
   }
@@ -96,6 +103,7 @@ class AccountMapperTest {
    * Verifies that mapping a valid input returns a valid output
    */
   @Test
+  @SneakyThrows
   void mapAccountDetails_validInput_validOutput() {
     assertNotNull(accountMapper);
 
@@ -111,7 +119,8 @@ class AccountMapperTest {
 
     var accountDetails = accountMapper.toAccountDetails(account);
 
-    assertEquals(balance, Double.parseDouble(accountDetails.getBalance()));
+    var format = NumberFormat.getInstance(Locale.US);
+    assertEquals(balance, format.parse(accountDetails.getBalance()).doubleValue());
     assertEquals(currency, accountDetails.getCurrency());
     assertEquals(id, accountDetails.getAccountId());
     assertEquals(ownerId, accountDetails.getOwnerId());
