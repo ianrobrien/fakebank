@@ -18,9 +18,9 @@ import dev.ianrobrien.fakebank.accounts.AccountRepository;
 import dev.ianrobrien.fakebank.accounts.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /***
@@ -30,7 +30,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = {AccountMapper.class})
 class PaymentControllerTest {
 
-  @MockBean
+  @MockitoBean
   private AccountMapper accountMapper;
 
   /***
