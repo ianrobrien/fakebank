@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.7</version>
+    <version>4.0.0</version>
     <relativePath/>
   </parent>
 
@@ -31,7 +31,7 @@
     <mockito-core.version>5.20.0</mockito-core.version>
     <lombok.version>1.18.42</lombok.version>
     <openapi-generator-maven-plugin.version>7.17.0</openapi-generator-maven-plugin.version>
-    <spring.version>6.2.12</spring.version>
+    <spring.version>7.0.1</spring.version>
   </properties>
 
   <distributionManagement>

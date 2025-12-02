@@ -6,8 +6,8 @@ import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 /***
  * Tests the account provider
@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = {AccountMapper.class})
 public class AccountServiceMockTest {
 
-  @MockBean
+  @MockitoBean
   private AccountMapper accountMapper;
 
   /***

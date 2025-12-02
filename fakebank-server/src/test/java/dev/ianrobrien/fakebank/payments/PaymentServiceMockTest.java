@@ -15,8 +15,8 @@ import dev.ianrobrien.fakebank.accounts.AccountRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 /***
  * Tests the payment provider
@@ -25,7 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = {AccountMapper.class})
 public class PaymentServiceMockTest {
 
-  @MockBean
+  @MockitoBean
   private AccountMapper accountMapper;
 
   /***
