@@ -28,7 +28,7 @@
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mapstruct.version>1.6.3</mapstruct.version>
-    <mockito-core.version>5.20.0</mockito-core.version>
+    <mockito-core.version>5.21.0</mockito-core.version>
     <lombok.version>1.18.42</lombok.version>
     <openapi-generator-maven-plugin.version>7.17.0</openapi-generator-maven-plugin.version>
     <spring.version>7.0.1</spring.version>
@@ -119,7 +119,7 @@
       <dependency>
         <groupId>org.mozilla</groupId>
         <artifactId>rhino</artifactId>
-        <version>1.7.14.1</version>
+        <version>1.8.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
