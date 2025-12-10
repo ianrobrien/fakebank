@@ -82,7 +82,7 @@ jobs:
           jacoco-csv-file: www/coverage/jacoco.csv
           coverage-label: Coverage
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.FAKEBANK_CREATE_PR }}
           title: "[create-pull-request] Update Jacoco coverage report"
