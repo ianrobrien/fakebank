@@ -96,7 +96,7 @@ jobs:
             .github/badges/*.svg
             www/coverage
       - name: Upload JaCoCo coverage report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: jacoco-report
           path: 'www/coverage/'
