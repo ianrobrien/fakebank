@@ -30,7 +30,7 @@
     <mapstruct.version>1.6.3</mapstruct.version>
     <mockito-core.version>5.21.0</mockito-core.version>
     <lombok.version>1.18.42</lombok.version>
-    <openapi-generator-maven-plugin.version>7.17.0</openapi-generator-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>7.18.0</openapi-generator-maven-plugin.version>
     <spring.version>7.0.2</spring.version>
   </properties>
 
