@@ -97,14 +97,14 @@
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>6.0.2</version>
+        <version>6.0.3</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-crypto</artifactId>
-        <version>7.0.2</version>
+        <version>7.0.3</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -119,7 +119,7 @@
       <dependency>
         <groupId>org.mozilla</groupId>
         <artifactId>rhino</artifactId>
-        <version>1.9.0</version>
+        <version>1.9.1</version>
       </dependency>
       <dependency>
         <groupId>org.assertj</groupId>
