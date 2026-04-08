@@ -141,6 +141,16 @@
         <artifactId>spring-boot-starter-actuator</artifactId>
         <version>4.0.5</version>
       </dependency>
+      <dependency>
+        <groupId>tools.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>3.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>4.0.0</version>
+      </dependency>      
     </dependencies>
   </dependencyManagement>
 
