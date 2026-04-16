@@ -1,14 +1,14 @@
 #
 # Build stage
 #
-FROM maven:3-eclipse-temurin-25-noble@sha256:c82963d26ac21d69ba333e28bd22c179cbef22b3561d67744a16342c8c33dc94 AS build
+FROM maven:3-eclipse-temurin-25-noble@sha256:dc177b22729fae1d45c7b9486aa1dc9077e56123993d85d1cd9fbe9a97a74404 AS build
 COPY . /home/app/
 RUN mvn -f /home/app/pom.xml clean install -DskipTests
 
 #
 # Package stage
 #
-FROM eclipse-temurin:25-alpine@sha256:da683f4f02f9427597d8fa162b73b8222fe08596dcebaf23e4399576ff8b037e
+FROM eclipse-temurin:25-alpine@sha256:d3f9f60ad2040582239e2977ee753d598787d8b064ca39a8e131860165dd81fb
 LABEL org.opencontainers.image.source="https://github.com/ianrobrien/fakebank"
 
 COPY --from=build /home/app/fakebank-server/target/fakebank-server-1.0.0-SNAPSHOT.jar /usr/local/lib/fakebank-server.jar
