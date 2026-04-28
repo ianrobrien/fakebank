@@ -35,11 +35,11 @@ updates:
       all:
         patterns:
           - "*"
-  - package-ecosystem: "terraform"
-    directory: "/infrastructure/terraform"
-    schedule:
-      interval: "daily"
-    groups:
-      all:
-        patterns:
-          - "*"
+  # - package-ecosystem: "terraform"
+  #   directory: "/infrastructure/terraform"
+  #   schedule:
+  #     interval: "daily"
+  #   groups:
+  #     all:
+  #       patterns:
+  #         - "*"
