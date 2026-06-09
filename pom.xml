@@ -30,7 +30,7 @@
     <mapstruct.version>1.6.3</mapstruct.version>
     <mockito-core.version>5.23.0</mockito-core.version>
     <lombok.version>1.18.46</lombok.version>
-    <openapi-generator-maven-plugin.version>7.22.0</openapi-generator-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>7.23.0</openapi-generator-maven-plugin.version>
     <spring.version>7.0.8</spring.version>
   </properties>
 
@@ -129,7 +129,7 @@
       <dependency>
         <groupId>tools.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>3.1.4</version>
+        <version>3.2.0</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
