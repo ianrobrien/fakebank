@@ -152,6 +152,11 @@
         <version>11.0.23</version>
         <scope>compile</scope>
       </dependency>
+      <dependency>
+        <groupId>com.github.jknack</groupId>
+        <artificatId>handlebars</artificatId>
+        <version>4.5.2</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
