@@ -156,6 +156,7 @@
         <groupId>com.github.jknack</groupId>
         <artificatId>handlebars</artificatId>
         <version>4.5.2</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
